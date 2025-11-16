@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Your Name | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050816;
+      color: #f5f5f5;
+    }
+    header {
+      padding: 2rem 10vw 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+      opacity: 0.8;
+    }
+    main {
+      padding: 2rem 10vw 4rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      border-left: 3px solid #4ade80;
+      padding-left: 0.6rem;
+    }
+    .summary {
+      line-height: 1.6;
+      max-width: 700px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .card {
+      background: rgba(15,23,42,0.9);
+      border-radius: 0.9rem;
+      padding: 1.3rem 1.4rem;
+      border: 1px solid rgba(148,163,184,0.25);
+    }
+    .card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+    }
+    .card p {
+      margin: 0.2rem 0;
+      font-size: 0.93rem;
+      line-height: 1.5;
+      opacity: 0.92;
+    }
+    .tag-row {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      opacity: 0.9;
+    }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+      opacity: 0.9;
+    }
+    a {
+      color: #4ade80;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      padding: 1.5rem 10vw 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Name</h1>
+    <p>Mechanical and Aerospace Engineering | Motorsport and Automotive</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Summary</h2>
+      <p class="summary">
+        Final-year Mechanical and Aerospace Engineering student with industry experience at Airbus and Subsea7.
+        I specialise in advanced CAD, CFD and FEA, as well as VR and AR software development.
+        I design digital tools, engineering simulations and detailed models, ranging from spacecraft to race car aerodynamics,
+        with a strong focus on accuracy, usability and engineering impact. I am currently working on a 30 percent scale Formula 1
+        model based on the 2026 regulations for my final-year group project and I am actively looking for roles in the motorsport
+        and automotive industry.
+      </p>
+    </section>
+
+    <section>
+      <h2>Featured Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>30% Scale F1 Model (2026 Regulations)</h3>
+          <p>
+            Final-year group project developing a 30 percent scale Formula 1 car model aligned with 2026 regulations,
+            focused on aerodynamics, performance and realistic testing conditions.
+          </p>
+          <p>
+            Work includes CAD modelling, aerodynamic concept development and preparation for wind tunnel or CFD validation.
+          </p>
+          <div class="tag-row">
+            <span class="tag">CAD</span>
+            <span class="tag">Aerodynamics</span>
+            <span class="tag">CFD</span>
+            <span class="tag">Motorsport</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Airbus Digital Engineering & AR/VR Tools</h3>
+          <p>
+            Industry experience at Airbus contributing to spacecraft and digital engineering workflows, including detailed CAD models
+            and AR/VR visualisation tools used across design teams.
+          </p>
+          <p>
+            Focus on accuracy, usability and integration into existing engineering processes.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Airbus</span>
+            <span class="tag">VR / AR</span>
+            <span class="tag">Digital Twin</span>
+            <span class="tag">CAD</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Subsea7 Engineering Experience</h3>
+          <p>
+            Worked on subsea engineering projects, supporting analysis and design tasks and gaining exposure to complex offshore systems
+            and real-world engineering constraints.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Subsea7</span>
+            <span class="tag">Offshore</span>
+            <span class="tag">Mechanical Design</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Engineering</h3>
+          <p>Mechanical and aerospace fundamentals, aerodynamics, structures and design for performance.</p>
+          <div class="tag-row">
+            <span class="tag">Aerodynamics</span>
+            <span class="tag">Structures</span>
+            <span class="tag">Motorsport</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Tools & Software</h3>
+          <p>Advanced CAD, CFD/FEA, Unity, VR/AR and supporting engineering toolchains.</p>
+          <div class="tag-row">
+            <span class="tag">CAD</span>
+            <span class="tag">CFD</span>
+            <span class="tag">FEA</span>
+            <span class="tag">Unity</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Programming</h3>
+          <p>Experience with C#, Python and related tooling for engineering workflows and visualisation.</p>
+          <div class="tag-row">
+            <span class="tag">C#</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>
+        Email: <a href="mailto:youremail@example.com">youremail@example.com</a>
+      </p>
+      <p>
+        LinkedIn: <a href="https://www.linkedin.com/in/your-handle" target="_blank">linkedin.com/in/your-handle</a>
+      </p>
+      <p>
+        GitHub: <a href="https://github.com/your-username" target="_blank">github.com/your-username</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Your Name. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

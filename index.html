@@ -15,6 +15,7 @@
 
     body {
       margin: 0;
+      padding-top: 1rem; /* extra space above sticky nav */
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
       color: #e5e7eb;
@@ -44,7 +45,7 @@
       padding: 1rem 1.5rem;
       margin: 0 0 1.5rem;
       position: sticky;
-      top: 0;
+      top: 1rem; /* sits slightly below top on scroll */
       backdrop-filter: blur(18px);
       background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.88));
       z-index: 10;
@@ -385,23 +386,28 @@
       <!-- PROJECTS -->
       <section id="projects">
         <h2 class="section-title">Selected Projects</h2>
-        <p class="section-subtitle">High-level summaries of a few key projects (F1 model, stator, Formula Student, etc.).</p>
+        <p class="section-subtitle">High-level summaries of key projects (F1 model, stator, Formula Student, etc.).</p>
 
         <div class="project-list">
           <article class="card project-card">
             <div class="project-image-wrapper">
-              <img src="images/f1-model.jpg" alt="30% scale F1 model" class="project-image">
+              <!-- Using your ProCap image here -->
+              <img src="ProCap_WakeAnalysis.jpeg"
+                   alt="Wake analysis from ProCap for 30% scale F1 model"
+                   class="project-image">
             </div>
             <div>
               <h3>30% Scale F1 Model (2026 Regulations)</h3>
               <p class="card-meta">Head of CAD · University of Southampton</p>
-              <p>Short description of scope, tools used and main goals, etc.</p>
+              <p>Short description of scope, tools used (SOLIDWORKS, STAR CCM+, ProCap wake analysis), etc.</p>
             </div>
           </article>
 
           <article class="card project-card">
             <div class="project-image-wrapper">
-              <img src="images/superconducting-stator.jpg" alt="Superconducting stator concept" class="project-image">
+              <img src="images/superconducting-stator.jpg"
+                   alt="Superconducting stator concept"
+                   class="project-image">
             </div>
             <div>
               <h3>Superconducting Stator for Electric Aircraft</h3>
@@ -412,7 +418,9 @@
 
           <article class="card project-card">
             <div class="project-image-wrapper">
-              <img src="images/formula-student.jpg" alt="Formula Student and robotics work" class="project-image">
+              <img src="images/formula-student.jpg"
+                   alt="Formula Student and robotics work"
+                   class="project-image">
             </div>
             <div>
               <h3>Formula Student & Robotics</h3>
@@ -457,10 +465,12 @@
       <!-- CONTACT -->
       <section id="contact">
         <h2 class="section-title">Contact</h2>
-        
+        <p class="section-subtitle">Short line inviting people to reach out about roles, collaborations, etc.</p>
+
         <div class="card contact-list">
           <p>Email: <a href="mailto:williamjtemple@outlook.com">williamjtemple@outlook.com</a></p>
           <p>LinkedIn: <a href="https://linkedin.com/in/williamjtemple" target="_blank">linkedin.com/in/williamjtemple</a></p>
+          <p>GitHub: <a href="https://github.com/williamtemple" target="_blank">github.com/williamtemple</a></p>
         </div>
       </section>
     </main>

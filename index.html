@@ -165,6 +165,11 @@
       font-size: 0.88rem;
     }
 
+    .hero-side h2 {
+      margin: 0 0 0.65rem;
+      font-size: 1rem;
+    }
+
     /* SECTIONS */
     main {
       padding: 2.4rem 0 0;
@@ -199,42 +204,29 @@
       border-radius: 0.9rem;
       padding: 1.25rem 1.3rem;
       border: 1px solid rgba(148, 163, 184, 0.32);
+      padding-right: 3.2rem; /* space so corner images don't overlap text */
     }
 
-    /* NEW — MINIMAL BADGES */
-    .card-logo {
+    .card h3 {
+      margin: 0 0 0.3rem;
+      font-size: 1.02rem;
+    }
+
+    .card-meta {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    /* CORNER IMAGES (experience + projects) */
+    .card-corner-image,
+    .project-corner-image {
       position: absolute;
       top: 0.7rem;
       right: 0.7rem;
-      background: rgba(255, 255, 255, 0.22); /* LIGHTER */
-      border: 1px solid rgba(255, 255, 255, 0.35); /* LIGHTER */
-      border-radius: 8px;
-      padding: 0.15rem 0.25rem; /* VERY small padding */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(3px);
-    }
-
-    .card-logo img {
-      height: 18px; /* smaller and cleaner */
+      max-height: 20px;
       width: auto;
       display: block;
-    }
-
-    /* TEXT BADGES (PROJECTS) */
-    .card-badge {
-      position: absolute;
-      top: 0.7rem;
-      right: 0.7rem;
-      padding: 0.18rem 0.45rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.32);
-      font-size: 0.7rem;
-      color: #e8ffe9;
-      letter-spacing: 0.03em;
-      backdrop-filter: blur(3px);
     }
 
     /* PROJECTS */
@@ -254,8 +246,9 @@
     .project-image-wrapper {
       border-radius: 0.85rem;
       overflow: hidden;
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
       min-height: 190px;
+      cursor: zoom-in;
     }
 
     .project-image {
@@ -263,6 +256,12 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .project-image-wrapper:hover .project-image {
+      transform: scale(1.02);
+      filter: brightness(1.05);
     }
 
     /* SKILLS */
@@ -287,12 +286,60 @@
       text-align: center;
     }
 
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease;
+      z-index: 50;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-inner {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: #020617;
+    }
+
+    .lightbox img {
+      display: block;
+      max-width: 100%;
+      max-height: 90vh;
+    }
+
+    .lightbox-close-hint {
+      position: fixed;
+      bottom: 1.5rem;
+      color: #9ca3af;
+      font-size: 0.8rem;
+      text-align: center;
+      width: 100%;
+      pointer-events: none;
+    }
+
     @media (max-width: 800px) {
       .hero-grid {
         grid-template-columns: 1fr;
       }
       .project-card {
         grid-template-columns: 1fr;
+      }
+      .project-image-wrapper {
+        cursor: default; /* no zoom cursor on mobile/tablet */
       }
     }
 
@@ -338,7 +385,9 @@
         <div>
           <h1>William Temple</h1>
           <p class="hero-role">MEng Mechanical and Aerospace Engineering</p>
-          <p class="hero-summary">Brief intro about who I am (CAD, CFD, VR/AR, motorsport focus etc.).</p>
+          <p class="hero-summary">
+            Brief intro about who I am (CAD, CFD, VR/AR, motorsport focus etc.).
+          </p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Contact me</a>
@@ -360,14 +409,12 @@
       <!-- EXPERIENCE -->
       <section id="experience">
         <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">Short overview of the most relevant roles (Airbus, Subsea7, etc.).</p>
 
         <div class="grid">
-
           <!-- Airbus -->
           <article class="card">
-            <div class="card-logo">
-              <img src="airbusLogo.png" alt="Airbus">
-            </div>
+            <img src="airbusLogo.png" alt="Airbus" class="card-corner-image">
             <h3>CAD Process Engineering Intern</h3>
             <p class="card-meta">Airbus Defence and Space · 2024–2025</p>
             <p>High-level summary of key work (VR, AR, CAD, tools etc.).</p>
@@ -375,26 +422,24 @@
 
           <!-- Subsea7 -->
           <article class="card">
-            <div class="card-logo">
-              <img src="ss7logo.jpg" alt="Subsea7">
-            </div>
+            <img src="ss7logo.jpg" alt="Subsea7" class="card-corner-image">
             <h3>Engineering Intern · Rigid Pipelines</h3>
             <p class="card-meta">Subsea7 · 2023</p>
             <p>Summary of analysis work, automation tool in Python etc.</p>
           </article>
-
         </div>
       </section>
 
       <!-- PROJECTS -->
       <section id="projects">
         <h2 class="section-title">Selected Projects</h2>
+        <p class="section-subtitle">High-level summaries of key projects (F1 model, stator, Formula Student etc.).</p>
 
         <div class="project-list">
-
-          <!-- F1 model -->
+          <!-- F1 project -->
           <article class="card project-card">
-            <div class="card-badge">Motorsport</div>
+            <!-- small corner image for this project -->
+            <img src="images/motorsport-icon.png" alt="Motorsport icon" class="project-corner-image">
             <div class="project-image-wrapper">
               <img src="ProCap_WakeAnalysis.jpeg" alt="Wake analysis" class="project-image">
             </div>
@@ -405,9 +450,9 @@
             </div>
           </article>
 
-          <!-- Stator -->
+          <!-- Stator project -->
           <article class="card project-card">
-            <div class="card-badge">Electric Propulsion</div>
+            <img src="images/electric-icon.png" alt="Electric propulsion icon" class="project-corner-image">
             <div class="project-image-wrapper">
               <img src="images/superconducting-stator.jpg" alt="Stator" class="project-image">
             </div>
@@ -418,9 +463,9 @@
             </div>
           </article>
 
-          <!-- FS -->
+          <!-- FS / robotics -->
           <article class="card project-card">
-            <div class="card-badge">FS / Robotics</div>
+            <img src="images/fs-icon.png" alt="Formula Student icon" class="project-corner-image">
             <div class="project-image-wrapper">
               <img src="images/formula-student.jpg" alt="Formula Student" class="project-image">
             </div>
@@ -430,7 +475,6 @@
               <p>Summary (cooling loop, electronics, competitions etc.).</p>
             </div>
           </article>
-
         </div>
       </section>
 
@@ -478,8 +522,48 @@
     </footer>
   </div>
 
+  <!-- LIGHTBOX OVERLAY -->
+  <div id="image-lightbox" class="lightbox">
+    <div class="lightbox-inner">
+      <img id="lightbox-img" src="" alt="">
+    </div>
+    <div class="lightbox-close-hint">Click anywhere or press Esc to close</div>
+  </div>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const projectImages = document.querySelectorAll('.project-image');
+
+    // Only enable lightbox on desktop / pointer devices (not touch-only)
+    const isDesktopPointer = window.matchMedia('(pointer: fine)').matches;
+
+    if (isDesktopPointer) {
+      projectImages.forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt || '';
+          lightbox.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+          lightbox.classList.remove('active');
+          lightboxImg.src = '';
+          document.body.style.overflow = '';
+        }
+      });
+    }
   </script>
 </body>
 </html>

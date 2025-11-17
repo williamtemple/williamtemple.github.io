@@ -5,86 +5,21 @@
   <title>William Temple | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #050816;
-      color: #f5f5f5;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      color: #e5e7eb;
     }
-    header {
-      padding: 2rem 10vw 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-    }
-    header p {
-      margin: 0.5rem 0 0;
-      opacity: 0.8;
-    }
-    main {
-      padding: 2rem 10vw 4rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    section {
-      margin-bottom: 2.5rem;
-    }
-    h2 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-      border-left: 3px solid #4ade80;
-      padding-left: 0.6rem;
-    }
-    .summary {
-      line-height: 1.6;
-      max-width: 700px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-    .card {
-      background: rgba(15,23,42,0.9);
-      border-radius: 0.9rem;
-      padding: 1.3rem 1.4rem;
-      border: 1px solid rgba(148,163,184,0.25);
-    }
-    .card h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1.1rem;
-    }
-    .card p {
-      margin: 0.2rem 0;
-      font-size: 0.93rem;
-      line-height: 1.5;
-      opacity: 0.92;
-    }
-    .tag-row {
-      margin-top: 0.8rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-    .tag {
-      font-size: 0.75rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.7);
-      opacity: 0.9;
-    }
-    .pill {
-      display: inline-block;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.4);
-      font-size: 0.8rem;
-      margin-top: 0.5rem;
-      opacity: 0.9;
-    }
+
     a {
       color: #4ade80;
       text-decoration: none;
@@ -92,129 +27,554 @@
     a:hover {
       text-decoration: underline;
     }
-    footer {
-      padding: 1.5rem 10vw 2rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
+
+    /* Layout */
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    /* Top nav */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.25rem 0 1.5rem;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0));
+      z-index: 10;
+    }
+
+    .nav-title {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
       font-size: 0.9rem;
-      opacity: 0.8;
+    }
+
+    .nav-links a {
+      color: #e5e7eb;
+      opacity: 0.75;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    /* Hero */
+    header {
+      padding: 1rem 0 2.5rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    h1 {
+      margin: 0 0 0.4rem;
+      font-size: clamp(2.2rem, 4vw, 2.8rem);
+    }
+
+    .hero-role {
+      margin: 0 0 0.9rem;
+      font-size: 1.03rem;
+      color: #9ca3af;
+    }
+
+    .hero-summary {
+      margin: 0 0 1.5rem;
+      line-height: 1.6;
+      max-width: 40rem;
+    }
+
+    .hero-meta {
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.22rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #d1d5db;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.2rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #22c55e, #16a34a);
+      border: none;
+      color: #022c22;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      filter: brightness(1.05);
+    }
+
+    .hero-side {
+      border-radius: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.08), rgba(15, 23, 42, 0.98));
+      padding: 1.25rem 1.4rem;
+      font-size: 0.88rem;
+    }
+
+    .hero-side h2 {
+      margin: 0 0 0.65rem;
+      font-size: 1rem;
+      border: none;
+      padding: 0;
+    }
+
+    .hero-side p {
+      margin: 0.1rem 0;
+      color: #d1d5db;
+    }
+
+    .hero-side strong {
+      color: #e5e7eb;
+    }
+
+    /* Sections */
+    main {
+      padding: 2.4rem 0 0;
+    }
+
+    section {
+      margin-bottom: 2.8rem;
+    }
+
+    h2.section-title {
+      font-size: 1.25rem;
+      margin: 0 0 0.4rem;
+      border-left: 3px solid #4ade80;
+      padding-left: 0.6rem;
+    }
+
+    .section-subtitle {
+      margin: 0 0 1.4rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.92);
+      border-radius: 0.9rem;
+      padding: 1.25rem 1.3rem;
+      border: 1px solid rgba(148, 163, 184, 0.32);
+    }
+
+    .card h3 {
+      margin: 0 0 0.3rem;
+      font-size: 1.02rem;
+    }
+
+    .card-meta {
+      margin: 0 0 0.7rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    .card p {
+      margin: 0.2rem 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #e5e7eb;
+    }
+
+    .tag-row {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.76rem;
+      padding: 0.18rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: #d1d5db;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.3rem;
+    }
+
+    .skills-list {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+      color: #d1d5db;
+    }
+
+    /* Projects – single column with images */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: 1.2rem;
+      align-items: start;
+    }
+
+    .project-image-wrapper {
+      border-radius: 0.85rem;
+      overflow: hidden;
+      background: radial-gradient(circle at top, rgba(34, 197, 94, 0.1), rgba(15, 23, 42, 1));
+      min-height: 190px;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 800px) {
+      .project-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Contact */
+    .contact-list p {
+      margin: 0.3rem 0;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.32);
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      font-size: 0.85rem;
+      color: #9ca3af;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+      .nav-links {
+        gap: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>William Temple</h1>
-    <p>MEng Mechanical/Aerospace Engineering | University of Southampoton</p>
-  </header>
-
-  <main>
-    <section>
-      <h2>Summary</h2>
-      <p class="summary">
-        Final-year Mechanical and Aerospace Engineering student with industry experience at Airbus and Subsea7.
-        I specialise in CAD, design and software development, and I am actively looking for roles in the motorsport
-        and automotive industry.
-      </p>
-    </section>
-
-    <section>
-      <h2>Featured Projects</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>30% Scale F1 Model (2026 Regulations)</h3>
-          <p>
-            Final-year group project developing a 30 percent scale Formula 1 car model aligned with 2026 regulations,
-            focused on iterative design through CFD, wind tunnel testing and CAD.
-          </p>
-          <p>
-            Work includes CAD modelling, aerodynamic concept development and preparation for wind tunnel or CFD validation.
-          </p>
-          <div class="tag-row">
-            <span class="tag">CAD</span>
-            <span class="tag">Aerodynamics</span>
-            <span class="tag">CFD</span>
-            <span class="tag">Motorsport</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Airbus Digital Engineering & AR/VR Tools</h3>
-          <p>
-            Industry experience at Airbus contributing to spacecraft and digital engineering workflows, including detailed CAD models
-            and AR/VR visualisation tools used across design teams.
-          </p>
-          <p>
-            Focus on accuracy, usability and integration into existing engineering processes.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Airbus</span>
-            <span class="tag">VR / AR</span>
-            <span class="tag">Digital Twin</span>
-            <span class="tag">CAD</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3>Subsea7 Engineering Experience</h3>
-          <p>
-            Worked on subsea engineering projects, supporting analysis and design tasks and gaining exposure to complex offshore systems
-            and real-world engineering constraints.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Subsea7</span>
-            <span class="tag">Offshore</span>
-            <span class="tag">Mechanical Design</span>
-          </div>
-        </article>
+  <div class="page">
+    <nav class="nav">
+      <div class="nav-title">William Temple</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#contact">Contact</a>
       </div>
-    </section>
+    </nav>
 
-    <section>
-      <h2>Skills</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Engineering</h3>
-          <p>Mechanical and aerospace fundamentals, aerodynamics, structures and design for performance.</p>
-          <div class="tag-row">
-            <span class="tag">Aerodynamics</span>
-            <span class="tag">Structures</span>
-            <span class="tag">Motorsport</span>
+    <header id="about">
+      <div class="hero-grid">
+        <div>
+          <h1>William Temple</h1>
+          <p class="hero-role">MEng Mechanical and Aerospace Engineering, University of Southampton</p>
+          <p class="hero-summary">
+            Final-year Mechanical and Aerospace Engineering student with industry experience at Airbus and Subsea7.
+            I specialise in advanced CAD, CFD and FEA, as well as VR and AR software development. I design digital tools,
+            engineering simulations and detailed models, ranging from spacecraft to race car aerodynamics, with a strong
+            focus on accuracy, usability and engineering impact. I am currently leading CAD for a 30 percent scale Formula 1
+            model based on the 2026 regulations and I am looking for roles in the motorsport and automotive industry.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:williamjtemple@outlook.com">
+              Contact me
+            </a>
+            <a class="btn" href="#projects">
+              View projects
+            </a>
+          </div>
+          <div class="pill-row">
+            <span class="pill">Motorsport focused</span>
+            <span class="pill">CAD and CFD</span>
+            <span class="pill">VR and AR tools</span>
           </div>
         </div>
-        <div class="card">
-          <h3>Tools & Software</h3>
-          <p>Advanced CAD, CFD/FEA, Unity, VR/AR and supporting engineering toolchains.</p>
-          <div class="tag-row">
-            <span class="tag">CAD</span>
-            <span class="tag">CFD</span>
-            <span class="tag">FEA</span>
-            <span class="tag">Unity</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Programming</h3>
-          <p>Experience with C#, Python and related tooling for engineering workflows and visualisation.</p>
-          <div class="tag-row">
-            <span class="tag">C#</span>
-            <span class="tag">Python</span>
-          </div>
-        </div>
+
+        <aside class="hero-side">
+          <h2>At a glance</h2>
+          <p><strong>Location:</strong> United Kingdom</p>
+          <p><strong>Degree:</strong> MEng Mechanical and Aerospace Engineering</p>
+          <p><strong>Graduation:</strong> 2026 (with industrial placement)</p>
+          <p><strong>Current role:</strong> CAD Process Engineering Intern at Airbus Defence and Space</p>
+          <p><strong>Interests:</strong> Motorsport, race car aerodynamics, high performance engineering</p>
+        </aside>
       </div>
-    </section>
+    </header>
 
-    <section>
-      <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:williamjtemple@outlook.com">williamjtemple@outlook.com</a>
-      </p>
-      <p>
-        LinkedIn: <a href="https://www.linkedin.com/in/williamjtemple" target="_blank">linkedin.com/in/williamjtemple</a>
-      </p>
-    </section>
-  </main>
+    <main>
+      <!-- Experience -->
+      <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">Professional engineering roles with a focus on digital tools, simulation and complex mechanical systems.</p>
 
-  <footer>
-    © <span id="year"></span> William Temple. All rights reserved.
-  </footer>
+        <div class="grid">
+          <article class="card">
+            <h3>CAD Process Engineering Intern</h3>
+            <p class="card-meta">Airbus Defence and Space · Jul 2024 to Aug 2025</p>
+            <p>
+              Produced detailed 1:1 scale CAD models and assemblies in 3DXperience and CATIA v5, including ESA Spacelab
+              and a full site model of Airbus Portsmouth, for use in VR environments and internal tools.
+            </p>
+            <p>
+              Built an augmented reality model viewer in Unity and C# that displays 1:1 scale holograms of spacecraft and
+              components from 3DX using QR codes. Developed bespoke AR and VR visualisation tools and a WPF application
+              to manage the Airbus archive of VR simulations, deployed across design offices.
+            </p>
+            <div class="tag-row">
+              <span class="tag">3DXperience</span>
+              <span class="tag">CATIA v5</span>
+              <span class="tag">Unity</span>
+              <span class="tag">C#</span>
+              <span class="tag">VR / AR</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Engineering Intern, Rigid Pipelines</h3>
+            <p class="card-meta">Subsea7 · Jun 2023 to Sep 2023</p>
+            <p>
+              Performed FEA on complex subsea pipe routes using company tools based on ANSYS, supporting buckling and
+              fatigue mitigation studies.
+            </p>
+            <p>
+              Developed a Python based engineering tool with a graphical interface that generated report appendices
+              directly from ANSYS output data, improving reporting speed and consistency across teams.
+            </p>
+            <div class="tag-row">
+              <span class="tag">ANSYS</span>
+              <span class="tag">FEA</span>
+              <span class="tag">Python</span>
+              <span class="tag">Data processing</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Projects (vertical, one per row, with images) -->
+      <section id="projects">
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-subtitle">Academic and extracurricular work with particular relevance to motorsport and advanced electric propulsion.</p>
+
+        <div class="project-list">
+          <article class="card project-card">
+            <div class="project-image-wrapper">
+              <!-- Replace src with your actual image file in the repo -->
+              <img src="images/f1-model.jpg" alt="30 percent scale F1 model based on 2026 regulations" class="project-image">
+            </div>
+            <div>
+              <h3>30 Percent Scale F1 Model for 2026 Regulations</h3>
+              <p class="card-meta">Head of CAD Design · University of Southampton</p>
+              <p>
+                Adapting an existing 30 percent scale Formula 1 model from 2023 regulations to conform with the 2026 rules,
+                focusing on aerodynamic performance and high quality wind tunnel data.
+              </p>
+              <p>
+                Responsibilities include advanced surfacing in SOLIDWORKS, preparation for wind tunnel testing, analysis of
+                wheels off data, ride height sweeps and wake measurements, plus CFD studies using STAR CCM+.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Motorsport</span>
+                <span class="tag">Aerodynamics</span>
+                <span class="tag">SOLIDWORKS</span>
+                <span class="tag">STAR CCM+</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-image-wrapper">
+              <img src="images/superconducting-stator.jpg" alt="Visualisation of superconducting stator concept" class="project-image">
+            </div>
+            <div>
+              <h3>Superconducting Stator for Electric Aircraft</h3>
+              <p class="card-meta">Individual dissertation project</p>
+              <p>
+                Designed and optimised a superconducting slotless 0.5 MW stator concept for electric aircraft propulsion,
+                balancing power, weight and efficiency targets.
+              </p>
+              <p>
+                Used COMSOL for multiphysics modelling and Python with Plotly and Pandas for data analysis and visualisation
+                to identify key performance drivers and trade offs.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Electric propulsion</span>
+                <span class="tag">COMSOL</span>
+                <span class="tag">Python</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-image-wrapper">
+              <img src="images/formula-student.jpg" alt="Formula Student and robotics projects" class="project-image">
+            </div>
+            <div>
+              <h3>Formula Student and Robotics</h3>
+              <p class="card-meta">Southampton Formula Student · Eurobot · Greenpower</p>
+              <p>
+                Contributed to tractive systems and cooling loop design for an electric Formula Student car, including
+                pressure drop calculations and CAD of components.
+              </p>
+              <p>
+                Participated in international robotics and electric race car competitions, taking responsibility for propulsion,
+                mechanical design and electronics, and gaining early hands on motorsport experience.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Formula Student</span>
+                <span class="tag">Robotics</span>
+                <span class="tag">Vehicle systems</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-subtitle">Tools and capabilities most relevant to motorsport, simulation and digital engineering.</p>
+
+        <div class="skills-grid">
+          <div class="card">
+            <h3>CAD and Analysis</h3>
+            <ul class="skills-list">
+              <li>3DXperience, CATIA v5, SOLIDWORKS</li>
+              <li>COMSOL, ANSYS FEA and FLUENT, STAR CCM+</li>
+              <li>Geometry preparation for CFD and wind tunnel testing</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Programming and Tools</h3>
+            <ul class="skills-list">
+              <li>C#, C++, Python, MATLAB, Java, SQL</li>
+              <li>.NET Framework, WPF and XAML for engineering applications</li>
+              <li>Python for data analysis, plotting and automation</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Visualisation and VR / AR</h3>
+            <ul class="skills-list">
+              <li>Unity development with C#</li>
+              <li>VR and AR model visualisation and tooling</li>
+              <li>Blender, basic texturing and asset preparation</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Downloads -->
+      <section id="downloads">
+        <h2 class="section-title">Downloads</h2>
+        <p class="section-subtitle">Download a copy of my CV as a PDF.</p>
+
+        <div class="card">
+          <p>
+            You can download my CV using the link below. The file is kept up to date with my latest experience and projects.
+          </p>
+          <div class="hero-actions">
+            <!-- Make sure this filename matches the PDF in your repo -->
+            <a class="btn btn-primary" href="William_Temple_CV.pdf" download>
+              Download CV (PDF)
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <h2 class="section-title">Contact</h2>
+
+        <div class="card contact-list">
+          <p>Email: <a href="mailto:williamjtemple@outlook.com">williamjtemple@outlook.com</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/williamjtemple" target="_blank">linkedin.com/in/williamjtemple</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> William Temple. All rights reserved.
+    </footer>
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();

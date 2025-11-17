@@ -15,7 +15,7 @@
 
     body {
       margin: 0;
-      padding-top: 1rem; /* extra space above sticky nav */
+      padding-top: 0.5rem; /* reduced space above sticky nav */
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
       color: #e5e7eb;
@@ -45,7 +45,7 @@
       padding: 1rem 1.5rem;
       margin: 0 0 1.5rem;
       position: sticky;
-      top: 1rem; /* sits slightly below top on scroll */
+      top: 0.5rem; /* reduced from 1rem */
       backdrop-filter: blur(18px);
       background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.88));
       z-index: 10;
@@ -202,6 +202,7 @@
     }
 
     .card {
+      position: relative; /* needed for logo / badge positioning */
       background: rgba(15, 23, 42, 0.92);
       border-radius: 0.9rem;
       padding: 1.25rem 1.3rem;
@@ -217,6 +218,45 @@
       margin: 0 0 0.7rem;
       font-size: 0.8rem;
       color: #9ca3af;
+    }
+
+    /* Company logo badges (experience cards) */
+    .card-logo {
+      position: absolute;
+      top: 0.9rem;
+      right: 0.9rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 0.35rem 0.55rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .card-logo img {
+      height: 22px;
+      width: auto;
+      display: block;
+      opacity: 0.9;
+    }
+
+    /* Text badges (projects) */
+    .card-badge {
+      position: absolute;
+      top: 0.9rem;
+      right: 0.9rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(74, 222, 128, 0.5);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #bbf7d0;
+      backdrop-filter: blur(3px);
+      white-space: nowrap;
     }
 
     /* Projects – single column */
@@ -340,7 +380,6 @@
               Contact me
             </a>
 
-            <!-- Make sure this filename matches the PDF in your repo -->
             <a class="btn btn-primary" href="William_Temple_CV.pdf" download>
               Download CV
             </a>
@@ -370,12 +409,20 @@
 
         <div class="grid">
           <article class="card">
+            <div class="card-logo">
+              <!-- Make sure this file exists in /images/ -->
+              <img src="airbusLogo.png" alt="Airbus logo">
+            </div>
             <h3>CAD Process Engineering Intern</h3>
             <p class="card-meta">Airbus Defence and Space · Jul 2024 – Aug 2025</p>
             <p>1–2 brief lines about key responsibilities and achievements, etc.</p>
           </article>
 
           <article class="card">
+            <div class="card-logo">
+              <!-- Make sure this file exists in /images/ -->
+              <img src="ss7logo.png" alt="Subsea7 logo">
+            </div>
             <h3>Engineering Intern · Rigid Pipelines</h3>
             <p class="card-meta">Subsea7 · Jun 2023 – Sep 2023</p>
             <p>1–2 brief lines about analysis work, automation tool in Python, etc.</p>
@@ -389,9 +436,10 @@
         <p class="section-subtitle">High-level summaries of key projects (F1 model, stator, Formula Student, etc.).</p>
 
         <div class="project-list">
+          <!-- F1 project -->
           <article class="card project-card">
+            <div class="card-badge">Motorsport / Aero</div>
             <div class="project-image-wrapper">
-              <!-- Using your ProCap image here -->
               <img src="ProCap_WakeAnalysis.jpeg"
                    alt="Wake analysis from ProCap for 30% scale F1 model"
                    class="project-image">
@@ -403,7 +451,9 @@
             </div>
           </article>
 
+          <!-- Stator project -->
           <article class="card project-card">
+            <div class="card-badge">Electric propulsion</div>
             <div class="project-image-wrapper">
               <img src="images/superconducting-stator.jpg"
                    alt="Superconducting stator concept"
@@ -416,7 +466,9 @@
             </div>
           </article>
 
+          <!-- FS / robotics project -->
           <article class="card project-card">
+            <div class="card-badge">FS / Robotics</div>
             <div class="project-image-wrapper">
               <img src="images/formula-student.jpg"
                    alt="Formula Student and robotics work"

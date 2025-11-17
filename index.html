@@ -23,6 +23,7 @@
     a {
       color: #4ade80;
       text-decoration: none;
+      transition: color 0.2s ease, opacity 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease;
     }
     a:hover {
       text-decoration: underline;
@@ -35,7 +36,7 @@
       padding: 1.5rem 1.25rem 3rem;
     }
 
-    /* Top nav (updated) */
+    /* Top nav */
     .nav {
       display: flex;
       align-items: center;
@@ -49,6 +50,7 @@
       z-index: 10;
       border-radius: 12px;
       border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.6);
     }
 
     .nav-title {
@@ -69,10 +71,29 @@
     .nav-links a {
       color: #e5e7eb;
       opacity: 0.75;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #22c55e, #4ade80);
+      transition: width 0.2s ease;
+      opacity: 0.8;
     }
 
     .nav-links a:hover {
       opacity: 1;
+      text-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+      transform: translateY(-0.5px);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
     /* Hero */
@@ -86,12 +107,6 @@
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
       gap: 2rem;
       align-items: center;
-    }
-
-    @media (max-width: 800px) {
-      .hero-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
     }
 
     h1 {
@@ -111,7 +126,6 @@
       max-width: 40rem;
     }
 
-    /* Buttons */
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -130,6 +144,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
+      text-decoration: none;
     }
 
     .btn-primary {
@@ -141,6 +156,7 @@
 
     .btn:hover {
       filter: brightness(1.05);
+      text-decoration: none;
     }
 
     .hero-side {
@@ -227,12 +243,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-
-    @media (max-width: 800px) {
-      .project-card {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      display: block;
     }
 
     /* Skills */
@@ -256,6 +267,48 @@
       color: #9ca3af;
       text-align: center;
     }
+
+    /* Mobile tweaks */
+    @media (max-width: 800px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .project-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 1rem 1rem 2.5rem;
+      }
+
+      .nav {
+        padding: 0.75rem 1rem;
+        margin-bottom: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 0.75rem 1rem;
+        font-size: 0.86rem;
+      }
+
+      header {
+        padding: 0.5rem 0 2rem;
+      }
+
+      section {
+        margin-bottom: 2rem;
+      }
+
+      .hero-actions {
+        gap: 0.6rem;
+      }
+    }
   </style>
 </head>
 
@@ -278,8 +331,7 @@
           <h1>William Temple</h1>
           <p class="hero-role">MEng Mechanical and Aerospace Engineering, University of Southampton</p>
           <p class="hero-summary">
-            Final-year Mechanical and Aerospace Engineering student with industry experience at Airbus and Subsea7.
-            I specialise in advanced CAD, CFD and FEA, as well as VR and AR software development...
+            Brief intro about who I am, areas I work in (CAD, CFD, VR/AR, motorsport focus, etc.).
           </p>
 
           <div class="hero-actions">
@@ -287,6 +339,7 @@
               Contact me
             </a>
 
+            <!-- Make sure this filename matches the PDF in your repo -->
             <a class="btn btn-primary" href="William_Temple_CV.pdf" download>
               Download CV
             </a>
@@ -301,8 +354,9 @@
           <h2>At a glance</h2>
           <p><strong>Location:</strong> United Kingdom</p>
           <p><strong>Degree:</strong> MEng Mechanical and Aerospace Engineering</p>
-          <p><strong>Graduation:</strong> 2026</p>
-          <p><strong>Current role:</strong> CAD Intern · Airbus Defence and Space</p>
+          <p><strong>Graduation:</strong> 2026 (with industrial placement)</p>
+          <p><strong>Current role:</strong> CAD Process Engineering Intern at Airbus Defence and Space</p>
+          <p><strong>Interests:</strong> Motorsport, aero, high performance engineering, etc.</p>
         </aside>
       </div>
     </header>
@@ -311,19 +365,19 @@
       <!-- EXPERIENCE -->
       <section id="experience">
         <h2 class="section-title">Experience</h2>
-        <p class="section-subtitle">Professional engineering roles focused on simulation and digital tools.</p>
+        <p class="section-subtitle">Short overview of the most relevant roles (Airbus, Subsea7, etc.).</p>
 
         <div class="grid">
           <article class="card">
             <h3>CAD Process Engineering Intern</h3>
             <p class="card-meta">Airbus Defence and Space · Jul 2024 – Aug 2025</p>
-            <p>Produced 1:1 CAD models, VR tools, AR hologram viewer, WPF software, etc.</p>
+            <p>1–2 brief lines about key responsibilities and achievements, etc.</p>
           </article>
 
           <article class="card">
             <h3>Engineering Intern · Rigid Pipelines</h3>
             <p class="card-meta">Subsea7 · Jun 2023 – Sep 2023</p>
-            <p>Performed FEA, fatigue/buckling analysis, built Python engineering automation tool.</p>
+            <p>1–2 brief lines about analysis work, automation tool in Python, etc.</p>
           </article>
         </div>
       </section>
@@ -331,72 +385,70 @@
       <!-- PROJECTS -->
       <section id="projects">
         <h2 class="section-title">Selected Projects</h2>
+        <p class="section-subtitle">High-level summaries of a few key projects (F1 model, stator, Formula Student, etc.).</p>
 
         <div class="project-list">
-
           <article class="card project-card">
             <div class="project-image-wrapper">
-              <img src="images/f1-model.jpg" class="project-image">
+              <img src="images/f1-model.jpg" alt="30% scale F1 model" class="project-image">
             </div>
             <div>
               <h3>30% Scale F1 Model (2026 Regulations)</h3>
               <p class="card-meta">Head of CAD · University of Southampton</p>
-              <p>Advanced surfacing, wind tunnel prep, CFD, wake analysis...</p>
+              <p>Short description of scope, tools used and main goals, etc.</p>
             </div>
           </article>
 
           <article class="card project-card">
             <div class="project-image-wrapper">
-              <img src="images/superconducting-stator.jpg" class="project-image">
+              <img src="images/superconducting-stator.jpg" alt="Superconducting stator concept" class="project-image">
             </div>
             <div>
-              <h3>Superconducting Stator (0.5 MW)</h3>
-              <p class="card-meta">Individual Dissertation</p>
-              <p>COMSOL modelling + Python optimisation.</p>
+              <h3>Superconducting Stator for Electric Aircraft</h3>
+              <p class="card-meta">Individual dissertation project</p>
+              <p>Short description of modelling/optimisation work in COMSOL + Python, etc.</p>
             </div>
           </article>
 
           <article class="card project-card">
             <div class="project-image-wrapper">
-              <img src="images/formula-student.jpg" class="project-image">
+              <img src="images/formula-student.jpg" alt="Formula Student and robotics work" class="project-image">
             </div>
             <div>
               <h3>Formula Student & Robotics</h3>
               <p class="card-meta">FS · Eurobot · Greenpower</p>
-              <p>Cooling loop design, electronics, autonomous robotics, etc.</p>
+              <p>Short description of cooling loop design, robotics competitions, vehicle systems, etc.</p>
             </div>
           </article>
-
         </div>
       </section>
 
       <!-- SKILLS -->
       <section id="skills">
         <h2 class="section-title">Skills</h2>
-        <p class="section-subtitle">Most relevant technical competences.</p>
+        <p class="section-subtitle">Condensed view of tools and areas you’re strongest in.</p>
 
         <div class="skills-grid">
           <div class="card">
             <h3>CAD & Analysis</h3>
             <ul>
               <li>3DXperience, CATIA, SOLIDWORKS</li>
-              <li>STAR CCM+, COMSOL, ANSYS</li>
+              <li>STAR CCM+, COMSOL, ANSYS, etc.</li>
             </ul>
           </div>
 
           <div class="card">
             <h3>Software</h3>
             <ul>
-              <li>C#, C++, Python</li>
-              <li>.NET, WPF, XAML</li>
+              <li>C#, C++, Python, MATLAB, etc.</li>
+              <li>.NET, WPF, XAML for tools/UI.</li>
             </ul>
           </div>
 
           <div class="card">
             <h3>Visualisation</h3>
             <ul>
-              <li>Unity (VR/AR)</li>
-              <li>Blender</li>
+              <li>Unity (VR/AR), Blender, etc.</li>
             </ul>
           </div>
         </div>
@@ -405,13 +457,12 @@
       <!-- CONTACT -->
       <section id="contact">
         <h2 class="section-title">Contact</h2>
-
+        
         <div class="card contact-list">
           <p>Email: <a href="mailto:williamjtemple@outlook.com">williamjtemple@outlook.com</a></p>
           <p>LinkedIn: <a href="https://linkedin.com/in/williamjtemple" target="_blank">linkedin.com/in/williamjtemple</a></p>
         </div>
       </section>
-
     </main>
 
     <footer>

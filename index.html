@@ -15,7 +15,7 @@
 
     body {
       margin: 0;
-      padding-top: 0.5rem; /* reduced space above sticky nav */
+      padding-top: 0.5rem;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
       color: #e5e7eb;
@@ -37,7 +37,7 @@
       padding: 1.5rem 1.25rem 3rem;
     }
 
-    /* Top nav */
+    /* NAV */
     .nav {
       display: flex;
       align-items: center;
@@ -45,7 +45,7 @@
       padding: 1rem 1.5rem;
       margin: 0 0 1.5rem;
       position: sticky;
-      top: 0.5rem; /* reduced from 1rem */
+      top: 0.5rem;
       backdrop-filter: blur(18px);
       background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.88));
       z-index: 10;
@@ -60,19 +60,23 @@
       font-size: 0.9rem;
       text-transform: uppercase;
       color: #cbd5e1;
-      padding-left: 0.2rem;
     }
 
     .nav-links {
       display: flex;
       gap: 1.25rem;
-      font-size: 0.9rem;
     }
 
     .nav-links a {
       color: #e5e7eb;
       opacity: 0.75;
       position: relative;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      text-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+      transform: translateY(-0.5px);
     }
 
     .nav-links a::after {
@@ -84,20 +88,13 @@
       height: 2px;
       background: linear-gradient(to right, #22c55e, #4ade80);
       transition: width 0.2s ease;
-      opacity: 0.8;
-    }
-
-    .nav-links a:hover {
-      opacity: 1;
-      text-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
-      transform: translateY(-0.5px);
     }
 
     .nav-links a:hover::after {
       width: 100%;
     }
 
-    /* Hero */
+    /* HERO */
     header {
       padding: 1rem 0 2.5rem;
       border-bottom: 1px solid rgba(148, 163, 184, 0.25);
@@ -127,6 +124,7 @@
       max-width: 40rem;
     }
 
+    /* HERO BUTTONS */
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -145,7 +143,6 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      text-decoration: none;
     }
 
     .btn-primary {
@@ -168,12 +165,7 @@
       font-size: 0.88rem;
     }
 
-    .hero-side h2 {
-      margin: 0 0 0.65rem;
-      font-size: 1rem;
-    }
-
-    /* Sections */
+    /* SECTIONS */
     main {
       padding: 2.4rem 0 0;
     }
@@ -202,64 +194,50 @@
     }
 
     .card {
-      position: relative; /* needed for logo / badge positioning */
+      position: relative;
       background: rgba(15, 23, 42, 0.92);
       border-radius: 0.9rem;
       padding: 1.25rem 1.3rem;
       border: 1px solid rgba(148, 163, 184, 0.32);
     }
 
-    .card h3 {
-      margin: 0 0 0.3rem;
-      font-size: 1.02rem;
-    }
-
-    .card-meta {
-      margin: 0 0 0.7rem;
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
-
-    /* Company logo badges (experience cards) */
+    /* NEW — MINIMAL BADGES */
     .card-logo {
       position: absolute;
-      top: 0.9rem;
-      right: 0.9rem;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 10px;
-      padding: 0.35rem 0.55rem;
+      top: 0.7rem;
+      right: 0.7rem;
+      background: rgba(255, 255, 255, 0.22); /* LIGHTER */
+      border: 1px solid rgba(255, 255, 255, 0.35); /* LIGHTER */
+      border-radius: 8px;
+      padding: 0.15rem 0.25rem; /* VERY small padding */
       display: flex;
       align-items: center;
       justify-content: center;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(3px);
     }
 
     .card-logo img {
-      height: 22px;
+      height: 18px; /* smaller and cleaner */
       width: auto;
       display: block;
-      opacity: 0.9;
     }
 
-    /* Text badges (projects) */
+    /* TEXT BADGES (PROJECTS) */
     .card-badge {
       position: absolute;
-      top: 0.9rem;
-      right: 0.9rem;
-      padding: 0.25rem 0.55rem;
+      top: 0.7rem;
+      right: 0.7rem;
+      padding: 0.18rem 0.45rem;
       border-radius: 999px;
-      background: rgba(34, 197, 94, 0.1);
-      border: 1px solid rgba(74, 222, 128, 0.5);
-      font-size: 0.72rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: #bbf7d0;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      font-size: 0.7rem;
+      color: #e8ffe9;
+      letter-spacing: 0.03em;
       backdrop-filter: blur(3px);
-      white-space: nowrap;
     }
 
-    /* Projects – single column */
+    /* PROJECTS */
     .project-list {
       display: flex;
       flex-direction: column;
@@ -276,7 +254,7 @@
     .project-image-wrapper {
       border-radius: 0.85rem;
       overflow: hidden;
-      background: radial-gradient(circle at top, rgba(34, 197, 94, 0.1), rgba(15, 23, 42, 1));
+      background: rgba(255,255,255,0.04);
       min-height: 190px;
     }
 
@@ -287,14 +265,14 @@
       display: block;
     }
 
-    /* Skills */
+    /* SKILLS */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1.3rem;
     }
 
-    /* Contact */
+    /* CONTACT */
     .contact-list p {
       margin: 0.3rem 0;
       font-size: 0.95rem;
@@ -309,13 +287,12 @@
       text-align: center;
     }
 
-    /* Mobile tweaks */
     @media (max-width: 800px) {
       .hero-grid {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
       }
       .project-card {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
       }
     }
 
@@ -323,31 +300,21 @@
       .page {
         padding: 1rem 1rem 2.5rem;
       }
-
       .nav {
         padding: 0.75rem 1rem;
-        margin-bottom: 1rem;
         flex-direction: column;
-        align-items: flex-start;
         gap: 0.4rem;
       }
-
       .nav-links {
         flex-wrap: wrap;
         gap: 0.75rem 1rem;
         font-size: 0.86rem;
       }
-
       header {
         padding: 0.5rem 0 2rem;
       }
-
       section {
         margin-bottom: 2rem;
-      }
-
-      .hero-actions {
-        gap: 0.6rem;
       }
     }
   </style>
@@ -370,33 +337,21 @@
       <div class="hero-grid">
         <div>
           <h1>William Temple</h1>
-          <p class="hero-role">MEng Mechanical and Aerospace Engineering, University of Southampton</p>
-          <p class="hero-summary">
-            Brief intro about who I am, areas I work in (CAD, CFD, VR/AR, motorsport focus, etc.).
-          </p>
+          <p class="hero-role">MEng Mechanical and Aerospace Engineering</p>
+          <p class="hero-summary">Brief intro about who I am (CAD, CFD, VR/AR, motorsport focus etc.).</p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">
-              Contact me
-            </a>
-
-            <a class="btn btn-primary" href="William_Temple_CV.pdf" download>
-              Download CV
-            </a>
-
-            <a class="btn" href="#projects">
-              View projects
-            </a>
+            <a class="btn btn-primary" href="#contact">Contact me</a>
+            <a class="btn btn-primary" href="William_Temple_CV.pdf" download>Download CV</a>
+            <a class="btn" href="#projects">View projects</a>
           </div>
         </div>
 
         <aside class="hero-side">
           <h2>At a glance</h2>
-          <p><strong>Location:</strong> United Kingdom</p>
-          <p><strong>Degree:</strong> MEng Mechanical and Aerospace Engineering</p>
-          <p><strong>Graduation:</strong> 2026 (with industrial placement)</p>
-          <p><strong>Current role:</strong> CAD Process Engineering Intern at Airbus Defence and Space</p>
-          <p><strong>Interests:</strong> Motorsport, aero, high performance engineering, etc.</p>
+          <p><strong>Location:</strong> UK</p>
+          <p><strong>Graduation:</strong> 2026</p>
+          <p><strong>Placement:</strong> Airbus Defence and Space</p>
         </aside>
       </div>
     </header>
@@ -405,110 +360,103 @@
       <!-- EXPERIENCE -->
       <section id="experience">
         <h2 class="section-title">Experience</h2>
-        <p class="section-subtitle">Short overview of the most relevant roles (Airbus, Subsea7, etc.).</p>
 
         <div class="grid">
+
+          <!-- Airbus -->
           <article class="card">
             <div class="card-logo">
-              <!-- Make sure this file exists in /images/ -->
-              <img src="airbusLogo.png" alt="Airbus logo">
+              <img src="airbusLogo.png" alt="Airbus">
             </div>
             <h3>CAD Process Engineering Intern</h3>
-            <p class="card-meta">Airbus Defence and Space · Jul 2024 – Aug 2025</p>
-            <p>1–2 brief lines about key responsibilities and achievements, etc.</p>
+            <p class="card-meta">Airbus Defence and Space · 2024–2025</p>
+            <p>High-level summary of key work (VR, AR, CAD, tools etc.).</p>
           </article>
 
+          <!-- Subsea7 -->
           <article class="card">
             <div class="card-logo">
-              <!-- Make sure this file exists in /images/ -->
-              <img src="ss7logo.jpg" alt="Subsea7 logo">
+              <img src="ss7logo.jpg" alt="Subsea7">
             </div>
             <h3>Engineering Intern · Rigid Pipelines</h3>
-            <p class="card-meta">Subsea7 · Jun 2023 – Sep 2023</p>
-            <p>1–2 brief lines about analysis work, automation tool in Python, etc.</p>
+            <p class="card-meta">Subsea7 · 2023</p>
+            <p>Summary of analysis work, automation tool in Python etc.</p>
           </article>
+
         </div>
       </section>
 
       <!-- PROJECTS -->
       <section id="projects">
         <h2 class="section-title">Selected Projects</h2>
-        <p class="section-subtitle">High-level summaries of key projects (F1 model, stator, Formula Student, etc.).</p>
 
         <div class="project-list">
-          <!-- F1 project -->
+
+          <!-- F1 model -->
           <article class="card project-card">
-            <div class="card-badge">Motorsport / Aero</div>
+            <div class="card-badge">Motorsport</div>
             <div class="project-image-wrapper">
-              <img src="ProCap_WakeAnalysis.jpeg"
-                   alt="Wake analysis from ProCap for 30% scale F1 model"
-                   class="project-image">
+              <img src="ProCap_WakeAnalysis.jpeg" alt="Wake analysis" class="project-image">
             </div>
             <div>
               <h3>30% Scale F1 Model (2026 Regulations)</h3>
-              <p class="card-meta">Head of CAD · University of Southampton</p>
-              <p>Short description of scope, tools used (SOLIDWORKS, STAR CCM+, ProCap wake analysis), etc.</p>
+              <p class="card-meta">Head of CAD</p>
+              <p>Summary of scope (CAD, CFD, wind tunnel, ProCap etc.).</p>
             </div>
           </article>
 
-          <!-- Stator project -->
+          <!-- Stator -->
           <article class="card project-card">
-            <div class="card-badge">Electric propulsion</div>
+            <div class="card-badge">Electric Propulsion</div>
             <div class="project-image-wrapper">
-              <img src="images/superconducting-stator.jpg"
-                   alt="Superconducting stator concept"
-                   class="project-image">
+              <img src="images/superconducting-stator.jpg" alt="Stator" class="project-image">
             </div>
             <div>
-              <h3>Superconducting Stator for Electric Aircraft</h3>
-              <p class="card-meta">Individual dissertation project</p>
-              <p>Short description of modelling/optimisation work in COMSOL + Python, etc.</p>
+              <h3>Superconducting Stator</h3>
+              <p class="card-meta">Individual Project</p>
+              <p>Summary (COMSOL, Python, optimisation etc.).</p>
             </div>
           </article>
 
-          <!-- FS / robotics project -->
+          <!-- FS -->
           <article class="card project-card">
             <div class="card-badge">FS / Robotics</div>
             <div class="project-image-wrapper">
-              <img src="images/formula-student.jpg"
-                   alt="Formula Student and robotics work"
-                   class="project-image">
+              <img src="images/formula-student.jpg" alt="Formula Student" class="project-image">
             </div>
             <div>
               <h3>Formula Student & Robotics</h3>
               <p class="card-meta">FS · Eurobot · Greenpower</p>
-              <p>Short description of cooling loop design, robotics competitions, vehicle systems, etc.</p>
+              <p>Summary (cooling loop, electronics, competitions etc.).</p>
             </div>
           </article>
+
         </div>
       </section>
 
       <!-- SKILLS -->
       <section id="skills">
         <h2 class="section-title">Skills</h2>
-        <p class="section-subtitle">Condensed view of tools and areas you’re strongest in.</p>
 
         <div class="skills-grid">
           <div class="card">
             <h3>CAD & Analysis</h3>
             <ul>
-              <li>3DXperience, CATIA, SOLIDWORKS</li>
-              <li>STAR CCM+, COMSOL, ANSYS, etc.</li>
+              <li>CATIA, 3DX, SOLIDWORKS</li>
+              <li>STAR CCM+, COMSOL, ANSYS</li>
             </ul>
           </div>
-
           <div class="card">
             <h3>Software</h3>
             <ul>
-              <li>C#, C++, Python, MATLAB, etc.</li>
-              <li>.NET, WPF, XAML for tools/UI.</li>
+              <li>C#, C++, Python</li>
+              <li>.NET, WPF, XAML</li>
             </ul>
           </div>
-
           <div class="card">
             <h3>Visualisation</h3>
             <ul>
-              <li>Unity (VR/AR), Blender, etc.</li>
+              <li>Unity (VR/AR), Blender</li>
             </ul>
           </div>
         </div>
@@ -520,7 +468,7 @@
 
         <div class="card contact-list">
           <p>Email: <a href="mailto:williamjtemple@outlook.com">williamjtemple@outlook.com</a></p>
-          <p>LinkedIn: <a href="https://linkedin.com/in/williamjtemple" target="_blank">linkedin.com/in/williamjtemple</a></p>
+          <p>LinkedIn: <a href="https://linkedin.com/in/williamtemple" target="_blank">linkedin.com/in/williamtemple</a></p>
         </div>
       </section>
     </main>

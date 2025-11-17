@@ -35,25 +35,29 @@
       padding: 1.5rem 1.25rem 3rem;
     }
 
-    /* Top nav */
+    /* Top nav (updated) */
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.25rem 0 1.5rem;
+      padding: 1rem 1.5rem;
+      margin: 0 0 1.5rem;
       position: sticky;
       top: 0;
       backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0));
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.88));
       z-index: 10;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
     }
 
     .nav-title {
       font-weight: 600;
       letter-spacing: 0.06em;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       text-transform: uppercase;
-      color: #9ca3af;
+      color: #cbd5e1;
+      padding-left: 0.2rem;
     }
 
     .nav-links {
@@ -107,30 +111,7 @@
       max-width: 40rem;
     }
 
-    .hero-meta {
-      font-size: 0.9rem;
-      color: #9ca3af;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0 0;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.22rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      font-size: 0.78rem;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      color: #d1d5db;
-    }
-
+    /* Buttons */
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -173,17 +154,6 @@
     .hero-side h2 {
       margin: 0 0 0.65rem;
       font-size: 1rem;
-      border: none;
-      padding: 0;
-    }
-
-    .hero-side p {
-      margin: 0.1rem 0;
-      color: #d1d5db;
-    }
-
-    .hero-side strong {
-      color: #e5e7eb;
     }
 
     /* Sections */
@@ -232,43 +202,7 @@
       color: #9ca3af;
     }
 
-    .card p {
-      margin: 0.2rem 0;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      color: #e5e7eb;
-    }
-
-    .tag-row {
-      margin-top: 0.8rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .tag {
-      font-size: 0.76rem;
-      padding: 0.18rem 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      color: #d1d5db;
-    }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.3rem;
-    }
-
-    .skills-list {
-      margin: 0.4rem 0 0;
-      padding-left: 1.1rem;
-      font-size: 0.9rem;
-      color: #d1d5db;
-    }
-
-    /* Projects – single column with images */
+    /* Projects – single column */
     .project-list {
       display: flex;
       flex-direction: column;
@@ -293,13 +227,19 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
     @media (max-width: 800px) {
       .project-card {
         grid-template-columns: minmax(0, 1fr);
       }
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.3rem;
     }
 
     /* Contact */
@@ -316,29 +256,18 @@
       color: #9ca3af;
       text-align: center;
     }
-
-    @media (max-width: 600px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.4rem;
-      }
-      .nav-links {
-        gap: 0.9rem;
-      }
-    }
   </style>
 </head>
+
 <body>
   <div class="page">
     <nav class="nav">
-      <div class="nav-title">William Temple</div>
+      <div class="nav-title">WILLIAM TEMPLE</div>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
-        <a href="#downloads">Downloads</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -350,23 +279,21 @@
           <p class="hero-role">MEng Mechanical and Aerospace Engineering, University of Southampton</p>
           <p class="hero-summary">
             Final-year Mechanical and Aerospace Engineering student with industry experience at Airbus and Subsea7.
-            I specialise in advanced CAD, CFD and FEA, as well as VR and AR software development. I design digital tools,
-            engineering simulations and detailed models, ranging from spacecraft to race car aerodynamics, with a strong
-            focus on accuracy, usability and engineering impact. I am currently leading CAD for a 30 percent scale Formula 1
-            model based on the 2026 regulations and I am looking for roles in the motorsport and automotive industry.
+            I specialise in advanced CAD, CFD and FEA, as well as VR and AR software development...
           </p>
+
           <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:williamjtemple@outlook.com">
+            <a class="btn btn-primary" href="#contact">
               Contact me
             </a>
+
+            <a class="btn btn-primary" href="William_Temple_CV.pdf" download>
+              Download CV
+            </a>
+
             <a class="btn" href="#projects">
               View projects
             </a>
-          </div>
-          <div class="pill-row">
-            <span class="pill">Motorsport focused</span>
-            <span class="pill">CAD and CFD</span>
-            <span class="pill">VR and AR tools</span>
           </div>
         </div>
 
@@ -374,201 +301,117 @@
           <h2>At a glance</h2>
           <p><strong>Location:</strong> United Kingdom</p>
           <p><strong>Degree:</strong> MEng Mechanical and Aerospace Engineering</p>
-          <p><strong>Graduation:</strong> 2026 (with industrial placement)</p>
-          <p><strong>Current role:</strong> CAD Process Engineering Intern at Airbus Defence and Space</p>
-          <p><strong>Interests:</strong> Motorsport, race car aerodynamics, high performance engineering</p>
+          <p><strong>Graduation:</strong> 2026</p>
+          <p><strong>Current role:</strong> CAD Intern · Airbus Defence and Space</p>
         </aside>
       </div>
     </header>
 
     <main>
-      <!-- Experience -->
+      <!-- EXPERIENCE -->
       <section id="experience">
         <h2 class="section-title">Experience</h2>
-        <p class="section-subtitle">Professional engineering roles with a focus on digital tools, simulation and complex mechanical systems.</p>
+        <p class="section-subtitle">Professional engineering roles focused on simulation and digital tools.</p>
 
         <div class="grid">
           <article class="card">
             <h3>CAD Process Engineering Intern</h3>
-            <p class="card-meta">Airbus Defence and Space · Jul 2024 to Aug 2025</p>
-            <p>
-              Produced detailed 1:1 scale CAD models and assemblies in 3DXperience and CATIA v5, including ESA Spacelab
-              and a full site model of Airbus Portsmouth, for use in VR environments and internal tools.
-            </p>
-            <p>
-              Built an augmented reality model viewer in Unity and C# that displays 1:1 scale holograms of spacecraft and
-              components from 3DX using QR codes. Developed bespoke AR and VR visualisation tools and a WPF application
-              to manage the Airbus archive of VR simulations, deployed across design offices.
-            </p>
-            <div class="tag-row">
-              <span class="tag">3DXperience</span>
-              <span class="tag">CATIA v5</span>
-              <span class="tag">Unity</span>
-              <span class="tag">C#</span>
-              <span class="tag">VR / AR</span>
-            </div>
+            <p class="card-meta">Airbus Defence and Space · Jul 2024 – Aug 2025</p>
+            <p>Produced 1:1 CAD models, VR tools, AR hologram viewer, WPF software, etc.</p>
           </article>
 
           <article class="card">
-            <h3>Engineering Intern, Rigid Pipelines</h3>
-            <p class="card-meta">Subsea7 · Jun 2023 to Sep 2023</p>
-            <p>
-              Performed FEA on complex subsea pipe routes using company tools based on ANSYS, supporting buckling and
-              fatigue mitigation studies.
-            </p>
-            <p>
-              Developed a Python based engineering tool with a graphical interface that generated report appendices
-              directly from ANSYS output data, improving reporting speed and consistency across teams.
-            </p>
-            <div class="tag-row">
-              <span class="tag">ANSYS</span>
-              <span class="tag">FEA</span>
-              <span class="tag">Python</span>
-              <span class="tag">Data processing</span>
-            </div>
+            <h3>Engineering Intern · Rigid Pipelines</h3>
+            <p class="card-meta">Subsea7 · Jun 2023 – Sep 2023</p>
+            <p>Performed FEA, fatigue/buckling analysis, built Python engineering automation tool.</p>
           </article>
         </div>
       </section>
 
-      <!-- Projects (vertical, one per row, with images) -->
+      <!-- PROJECTS -->
       <section id="projects">
         <h2 class="section-title">Selected Projects</h2>
-        <p class="section-subtitle">Academic and extracurricular work with particular relevance to motorsport and advanced electric propulsion.</p>
 
         <div class="project-list">
+
           <article class="card project-card">
             <div class="project-image-wrapper">
-              <!-- Replace src with your actual image file in the repo -->
-              <img src="images/f1-model.jpg" alt="30 percent scale F1 model based on 2026 regulations" class="project-image">
+              <img src="images/f1-model.jpg" class="project-image">
             </div>
             <div>
-              <h3>30 Percent Scale F1 Model for 2026 Regulations</h3>
-              <p class="card-meta">Head of CAD Design · University of Southampton</p>
-              <p>
-                Adapting an existing 30 percent scale Formula 1 model from 2023 regulations to conform with the 2026 rules,
-                focusing on aerodynamic performance and high quality wind tunnel data.
-              </p>
-              <p>
-                Responsibilities include advanced surfacing in SOLIDWORKS, preparation for wind tunnel testing, analysis of
-                wheels off data, ride height sweeps and wake measurements, plus CFD studies using STAR CCM+.
-              </p>
-              <div class="tag-row">
-                <span class="tag">Motorsport</span>
-                <span class="tag">Aerodynamics</span>
-                <span class="tag">SOLIDWORKS</span>
-                <span class="tag">STAR CCM+</span>
-              </div>
+              <h3>30% Scale F1 Model (2026 Regulations)</h3>
+              <p class="card-meta">Head of CAD · University of Southampton</p>
+              <p>Advanced surfacing, wind tunnel prep, CFD, wake analysis...</p>
             </div>
           </article>
 
           <article class="card project-card">
             <div class="project-image-wrapper">
-              <img src="images/superconducting-stator.jpg" alt="Visualisation of superconducting stator concept" class="project-image">
+              <img src="images/superconducting-stator.jpg" class="project-image">
             </div>
             <div>
-              <h3>Superconducting Stator for Electric Aircraft</h3>
-              <p class="card-meta">Individual dissertation project</p>
-              <p>
-                Designed and optimised a superconducting slotless 0.5 MW stator concept for electric aircraft propulsion,
-                balancing power, weight and efficiency targets.
-              </p>
-              <p>
-                Used COMSOL for multiphysics modelling and Python with Plotly and Pandas for data analysis and visualisation
-                to identify key performance drivers and trade offs.
-              </p>
-              <div class="tag-row">
-                <span class="tag">Electric propulsion</span>
-                <span class="tag">COMSOL</span>
-                <span class="tag">Python</span>
-              </div>
+              <h3>Superconducting Stator (0.5 MW)</h3>
+              <p class="card-meta">Individual Dissertation</p>
+              <p>COMSOL modelling + Python optimisation.</p>
             </div>
           </article>
 
           <article class="card project-card">
             <div class="project-image-wrapper">
-              <img src="images/formula-student.jpg" alt="Formula Student and robotics projects" class="project-image">
+              <img src="images/formula-student.jpg" class="project-image">
             </div>
             <div>
-              <h3>Formula Student and Robotics</h3>
-              <p class="card-meta">Southampton Formula Student · Eurobot · Greenpower</p>
-              <p>
-                Contributed to tractive systems and cooling loop design for an electric Formula Student car, including
-                pressure drop calculations and CAD of components.
-              </p>
-              <p>
-                Participated in international robotics and electric race car competitions, taking responsibility for propulsion,
-                mechanical design and electronics, and gaining early hands on motorsport experience.
-              </p>
-              <div class="tag-row">
-                <span class="tag">Formula Student</span>
-                <span class="tag">Robotics</span>
-                <span class="tag">Vehicle systems</span>
-              </div>
+              <h3>Formula Student & Robotics</h3>
+              <p class="card-meta">FS · Eurobot · Greenpower</p>
+              <p>Cooling loop design, electronics, autonomous robotics, etc.</p>
             </div>
           </article>
+
         </div>
       </section>
 
-      <!-- Skills -->
+      <!-- SKILLS -->
       <section id="skills">
         <h2 class="section-title">Skills</h2>
-        <p class="section-subtitle">Tools and capabilities most relevant to motorsport, simulation and digital engineering.</p>
+        <p class="section-subtitle">Most relevant technical competences.</p>
 
         <div class="skills-grid">
           <div class="card">
-            <h3>CAD and Analysis</h3>
-            <ul class="skills-list">
-              <li>3DXperience, CATIA v5, SOLIDWORKS</li>
-              <li>COMSOL, ANSYS FEA and FLUENT, STAR CCM+</li>
-              <li>Geometry preparation for CFD and wind tunnel testing</li>
+            <h3>CAD & Analysis</h3>
+            <ul>
+              <li>3DXperience, CATIA, SOLIDWORKS</li>
+              <li>STAR CCM+, COMSOL, ANSYS</li>
             </ul>
           </div>
+
           <div class="card">
-            <h3>Programming and Tools</h3>
-            <ul class="skills-list">
-              <li>C#, C++, Python, MATLAB, Java, SQL</li>
-              <li>.NET Framework, WPF and XAML for engineering applications</li>
-              <li>Python for data analysis, plotting and automation</li>
+            <h3>Software</h3>
+            <ul>
+              <li>C#, C++, Python</li>
+              <li>.NET, WPF, XAML</li>
             </ul>
           </div>
+
           <div class="card">
-            <h3>Visualisation and VR / AR</h3>
-            <ul class="skills-list">
-              <li>Unity development with C#</li>
-              <li>VR and AR model visualisation and tooling</li>
-              <li>Blender, basic texturing and asset preparation</li>
+            <h3>Visualisation</h3>
+            <ul>
+              <li>Unity (VR/AR)</li>
+              <li>Blender</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- Downloads -->
-      <section id="downloads">
-        <h2 class="section-title">Downloads</h2>
-        <p class="section-subtitle">Download a copy of my CV as a PDF.</p>
-
-        <div class="card">
-          <p>
-            You can download my CV using the link below. The file is kept up to date with my latest experience and projects.
-          </p>
-          <div class="hero-actions">
-            <!-- Make sure this filename matches the PDF in your repo -->
-            <a class="btn btn-primary" href="William_Temple_CV.pdf" download>
-              Download CV (PDF)
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
+      <!-- CONTACT -->
       <section id="contact">
         <h2 class="section-title">Contact</h2>
 
         <div class="card contact-list">
           <p>Email: <a href="mailto:williamjtemple@outlook.com">williamjtemple@outlook.com</a></p>
-          <p>LinkedIn: <a href="https://www.linkedin.com/in/williamjtemple" target="_blank">linkedin.com/in/williamjtemple</a></p>
+          <p>LinkedIn: <a href="https://linkedin.com/in/williamjtemple" target="_blank">linkedin.com/in/williamjtemple</a></p>
         </div>
       </section>
+
     </main>
 
     <footer>

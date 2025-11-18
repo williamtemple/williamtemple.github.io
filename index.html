@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>William Temple - Portfolio</title>
+  <title>William Temple | Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -270,6 +270,7 @@
       min-height: 190px;
       cursor: zoom-in;
       isolation: isolate;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     /* "Stack of photos" effect */
@@ -282,6 +283,7 @@
       border: 1px solid rgba(148, 163, 184, 0.4);
       background: rgba(15, 23, 42, 0.95);
       z-index: -1;
+      transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
     .project-image-wrapper::before {
@@ -292,6 +294,20 @@
     .project-image-wrapper::after {
       transform: translate(-6px, 6px) rotate(1.2deg);
       opacity: 0.35;
+    }
+
+    /* Shuffle stack when hovering the whole project card */
+    .project-card:hover .project-image-wrapper {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.9);
+    }
+
+    .project-card:hover .project-image-wrapper::before {
+      transform: translate(14px, -10px) rotate(-4deg);
+    }
+
+    .project-card:hover .project-image-wrapper::after {
+      transform: translate(-12px, 12px) rotate(3deg);
     }
 
     .project-image {
@@ -349,20 +365,25 @@
     }
 
     .lightbox-inner {
-      max-width: 90vw;
+      max-width: min(1100px, 90vw);
       max-height: 90vh;
-      border-radius: 12px;
+      padding: 1.5rem 2.5rem;
+      border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
       border: 1px solid rgba(148, 163, 184, 0.6);
       background: #020617;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .lightbox img {
       display: block;
       max-width: 100%;
-      max-height: 90vh;
+      max-height: 100%;
+      object-fit: contain;
     }
 
     .lightbox-close-hint {
@@ -380,18 +401,18 @@
       top: 50%;
       transform: translateY(-50%);
       border: none;
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.9);
       color: #e5e7eb;
-      width: 2.2rem;
-      height: 2.2rem;
+      width: 3rem;
+      height: 3rem;
       border-radius: 999px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 1.4rem;
+      font-size: 2rem;
       line-height: 1;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
     }
 
     .lightbox-arrow:hover {
@@ -532,11 +553,10 @@
           <div class="project-list">
 
             <article class="card project-card">
-              <img src="images/motorsport-icon.png" alt="Motorsport icon" class="project-corner-image">
-              <!-- multiple images defined via data-images -->
+              <img src="motorsport-icon.png" alt="Motorsport icon" class="project-corner-image">
               <div
                 class="project-image-wrapper"
-                data-images="ProCap_WakeAnalysis.jpeg,WindTunnelModel_2022spec.jpg,ProCap_WakeAnalysis.jpeg,CADsuspension.jpg">
+                data-images="ProCap_WakeAnalysis.jpeg,WindTunnelModel_2022spec.jpg,wakePlanes.jpg,CADsuspension.jpg">
                 <img src="ProCap_WakeAnalysis.jpeg" alt="Wake analysis" class="project-image">
               </div>
               <div>
@@ -559,8 +579,8 @@
               <img src="airbusLogo.png" alt="Airbus icon" class="project-corner-image">
               <div
                 class="project-image-wrapper"
-                data-images="images/airbus-ar-viewer.jpg,images/airbus-ar-viewer-2.jpg">
-                <img src="images/airbus-ar-viewer.jpg" alt="Airbus AR model viewer" class="project-image">
+                data-images="airbus-ar-viewer.jpg,airbus-ar-viewer-2.jpg">
+                <img src="airbus-ar-viewer.jpg" alt="Airbus AR model viewer" class="project-image">
               </div>
               <div>
                 <h3>AR Model Viewer</h3>
@@ -574,8 +594,8 @@
               <img src="airbusLogo.png" alt="Airbus icon" class="project-corner-image">
               <div
                 class="project-image-wrapper"
-                data-images="images/airbus-vr-launcher.jpg,images/airbus-vr-launcher-2.jpg">
-                <img src="images/airbus-vr-launcher.jpg" alt="Airbus VR launcher" class="project-image">
+                data-images="airbus-vr-launcher.jpg,airbus-vr-launcher-2.jpg">
+                <img src="airbus-vr-launcher.jpg" alt="Airbus VR launcher" class="project-image">
               </div>
               <div>
                 <h3>VR Launcher</h3>
@@ -589,8 +609,8 @@
               <img src="airbusLogo.png" alt="Airbus icon" class="project-corner-image">
               <div
                 class="project-image-wrapper"
-                data-images="images/airbus-cad-site.jpg,images/airbus-spacelab.jpg,images/airbus-simplified-models.jpg">
-                <img src="images/airbus-cad-site.jpg" alt="Airbus CAD modelling" class="project-image">
+                data-images="airbus-cad-site.jpg,airbus-spacelab.jpg,airbus-simplified-models.jpg">
+                <img src="airbus-cad-site.jpg" alt="Airbus CAD modelling" class="project-image">
               </div>
               <div>
                 <h3>CAD Modelling (Site Model, Spacelab Exhibit, Simplified Models)</h3>
@@ -609,11 +629,11 @@
           <div class="project-list">
 
             <article class="card project-card">
-              <img src="images/electric-icon.png" alt="Electric propulsion icon" class="project-corner-image">
+              <img src="electric-icon.png" alt="Electric propulsion icon" class="project-corner-image">
               <div
                 class="project-image-wrapper"
-                data-images="images/superconducting-stator.jpg,images/superconducting-stator-2.jpg">
-                <img src="images/superconducting-stator.jpg" alt="Superconducting stator" class="project-image">
+                data-images="superconducting-stator.jpg,superconducting-stator-2.jpg">
+                <img src="superconducting-stator.jpg" alt="Superconducting stator" class="project-image">
               </div>
               <div>
                 <h3>Superconducting Slotless Stator for Electric Aircraft</h3>
@@ -635,8 +655,8 @@
               <img src="ss7logo.jpg" alt="Subsea7 icon" class="project-corner-image">
               <div
                 class="project-image-wrapper"
-                data-images="images/subsea-fea.jpg,images/subsea-fea-2.jpg">
-                <img src="images/subsea-fea.jpg" alt="Subsea FEA" class="project-image">
+                data-images="subsea-fea.jpg,subsea-fea-2.jpg">
+                <img src="subsea-fea.jpg" alt="Subsea FEA" class="project-image">
               </div>
               <div>
                 <h3>Subsea Pipeline FEA & Buckling Studies</h3>
@@ -650,8 +670,8 @@
               <img src="ss7logo.jpg" alt="Subsea7 icon" class="project-corner-image">
               <div
                 class="project-image-wrapper"
-                data-images="images/subsea-python-tool.jpg,images/subsea-python-tool-2.jpg">
-                <img src="images/subsea-python-tool.jpg" alt="Subsea7 Python tool" class="project-image">
+                data-images="subsea-python-tool.jpg,subsea-python-tool-2.jpg">
+                <img src="subsea-python-tool.jpg" alt="Subsea7 Python tool" class="project-image">
               </div>
               <div>
                 <h3>Automated Report Appendix Tool (Subsea7)</h3>
@@ -662,11 +682,11 @@
             </article>
 
             <article class="card project-card">
-              <img src="images/fs-icon.png" alt="Formula Student icon" class="project-corner-image">
+              <img src="fs-icon.png" alt="Formula Student icon" class="project-corner-image">
               <div
                 class="project-image-wrapper"
-                data-images="images/formula-student.jpg,images/formula-student-2.jpg">
-                <img src="images/formula-student.jpg" alt="Formula Student car" class="project-image">
+                data-images="formula-student.jpg,formula-student-2.jpg">
+                <img src="formula-student.jpg" alt="Formula Student car" class="project-image">
               </div>
               <div>
                 <h3>Formula Student Cooling & Tractive Systems</h3>
@@ -677,11 +697,11 @@
             </article>
 
             <article class="card project-card">
-              <img src="images/robotics-icon.png" alt="Robotics icon" class="project-corner-image">
+              <img src="robotics-icon.png" alt="Robotics icon" class="project-corner-image">
               <div
                 class="project-image-wrapper"
-                data-images="images/eurobot.jpg,images/eurobot-2.jpg">
-                <img src="images/eurobot.jpg" alt="Eurobot robot" class="project-image">
+                data-images="eurobot.jpg,eurobot-2.jpg">
+                <img src="eurobot.jpg" alt="Eurobot robot" class="project-image">
               </div>
               <div>
                 <h3>Eurobot Robotics Competition</h3>
@@ -700,11 +720,11 @@
           <div class="project-list">
 
             <article class="card project-card">
-              <img src="images/greenpower-icon.png" alt="Greenpower icon" class="project-corner-image">
+              <img src="greenpower-icon.png" alt="Greenpower icon" class="project-corner-image">
               <div
                 class="project-image-wrapper"
-                data-images="images/greenpower.jpg,images/greenpower-2.jpg">
-                <img src="images/greenpower.jpg" alt="Greenpower EV" class="project-image">
+                data-images="greenpower.jpg,greenpower-2.jpg">
+                <img src="greenpower.jpg" alt="Greenpower EV" class="project-image">
               </div>
               <div>
                 <h3>Greenpower Electric Race Car</h3>
@@ -817,7 +837,7 @@
         });
       });
 
-      // Clicking on overlay closes it, unless click is on arrows or image
+      // clicking only the backdrop closes
       lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
           lightbox.classList.remove('active');

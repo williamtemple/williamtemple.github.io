@@ -204,7 +204,7 @@
       border-radius: 0.9rem;
       padding: 1.25rem 1.3rem;
       border: 1px solid rgba(148, 163, 184, 0.32);
-      padding-right: 3.2rem; /* space so corner images don't overlap text */
+      padding-right: 3.2rem; /* space for corner icons on desktop */
     }
 
     .card h3 {
@@ -347,21 +347,35 @@
       .page {
         padding: 1rem 1rem 2.5rem;
       }
+
       .nav {
         padding: 0.75rem 1rem;
         flex-direction: column;
         gap: 0.4rem;
       }
+
       .nav-links {
         flex-wrap: wrap;
         gap: 0.75rem 1rem;
         font-size: 0.86rem;
       }
+
       header {
         padding: 0.5rem 0 2rem;
       }
+
       section {
         margin-bottom: 2rem;
+      }
+
+      /* On mobile, hide corner icons and reset right padding so titles don't collide */
+      .card-corner-image,
+      .project-corner-image {
+        display: none;
+      }
+
+      .card {
+        padding-right: 1.3rem;
       }
     }
   </style>
@@ -414,7 +428,7 @@
         <div class="grid">
           <!-- Airbus -->
           <article class="card">
-            <img src="airbusLogo.png" alt="Airbus" class="card-corner-image">
+            <img src="images/airbus-logo.png" alt="Airbus" class="card-corner-image">
             <h3>CAD Process Engineering Intern</h3>
             <p class="card-meta">Airbus Defence and Space · 2024–2025</p>
             <p>High-level summary of key work (VR, AR, CAD, tools etc.).</p>
@@ -422,7 +436,7 @@
 
           <!-- Subsea7 -->
           <article class="card">
-            <img src="ss7logo.jpg" alt="Subsea7" class="card-corner-image">
+            <img src="images/subsea7-logo.png" alt="Subsea7" class="card-corner-image">
             <h3>Engineering Intern · Rigid Pipelines</h3>
             <p class="card-meta">Subsea7 · 2023</p>
             <p>Summary of analysis work, automation tool in Python etc.</p>
@@ -432,12 +446,12 @@
 
       <!-- PROJECTS -->
       <section id="projects">
-        <h2 class="section-title">Current Projects</h2>
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-subtitle">High-level summaries of key projects (F1 model, stator, Formula Student etc.).</p>
 
         <div class="project-list">
           <!-- F1 project -->
           <article class="card project-card">
-            <!-- small corner image for this project -->
             <img src="images/motorsport-icon.png" alt="Motorsport icon" class="project-corner-image">
             <div class="project-image-wrapper">
               <img src="ProCap_WakeAnalysis.jpeg" alt="Wake analysis" class="project-image">
@@ -499,7 +513,7 @@
           <div class="card">
             <h3>Visualisation</h3>
             <ul>
-              <li>Unity, Blender</li>
+              <li>Unity (VR/AR), Blender</li>
             </ul>
           </div>
         </div>
@@ -512,6 +526,7 @@
         <div class="card contact-list">
           <p>Email: <a href="mailto:williamjtemple@outlook.com">williamjtemple@outlook.com</a></p>
           <p>LinkedIn: <a href="https://linkedin.com/in/williamtemple" target="_blank">linkedin.com/in/williamtemple</a></p>
+          <p>GitHub: <a href="https://github.com/williamtemple" target="_blank">github.com/williamtemple</a></p>
         </div>
       </section>
     </main>

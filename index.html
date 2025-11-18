@@ -213,9 +213,17 @@
     }
 
     .card-meta {
-      margin: 0 0 0.7rem;
+      margin: 0.1rem 0;
       font-size: 0.8rem;
       color: #9ca3af;
+    }
+
+    .project-type {
+      margin: 0 0 0.6rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #a5b4fc;
     }
 
     /* CORNER IMAGES (experience + projects) */
@@ -229,11 +237,25 @@
       display: block;
     }
 
+    /* EXPERIENCE */
+    /* already uses .grid + .card, nothing extra needed */
+
     /* PROJECTS */
+    .projects-year {
+      margin-bottom: 2.4rem;
+    }
+
+    .projects-year-title {
+      font-size: 1.05rem;
+      margin: 0 0 0.8rem;
+      color: #e5e7eb;
+      opacity: 0.95;
+    }
+
     .project-list {
       display: flex;
       flex-direction: column;
-      gap: 1.6rem;
+      gap: 1.4rem;
     }
 
     .project-card {
@@ -428,17 +450,19 @@
         <div class="grid">
           <!-- Airbus -->
           <article class="card">
-            <img src="images/airbus-logo.png" alt="Airbus" class="card-corner-image">
+            <img src="airbusLogo.png" alt="Airbus" class="card-corner-image">
             <h3>CAD Process Engineering Intern</h3>
-            <p class="card-meta">Airbus Defence and Space · 2024–2025</p>
+            <p class="card-meta">Jul 2024 – Aug 2025</p>
+            <p class="project-type">Professional experience</p>
             <p>High-level summary of key work (VR, AR, CAD, tools etc.).</p>
           </article>
 
           <!-- Subsea7 -->
           <article class="card">
-            <img src="images/subsea7-logo.png" alt="Subsea7" class="card-corner-image">
+            <img src="ss7logo.jpg" alt="Subsea7" class="card-corner-image">
             <h3>Engineering Intern · Rigid Pipelines</h3>
-            <p class="card-meta">Subsea7 · 2023</p>
+            <p class="card-meta">Jun 2023 – Sep 2023</p>
+            <p class="project-type">Professional experience</p>
             <p>Summary of analysis work, automation tool in Python etc.</p>
           </article>
         </div>
@@ -446,48 +470,156 @@
 
       <!-- PROJECTS -->
       <section id="projects">
-        <h2 class="section-title">Selected Projects</h2>
-        <p class="section-subtitle">High-level summaries of key projects (F1 model, stator, Formula Student etc.).</p>
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">Current and past work, separated by year, matching the projects listed on my CV.</p>
 
-        <div class="project-list">
-          <!-- F1 project -->
-          <article class="card project-card">
-            <img src="images/motorsport-icon.png" alt="Motorsport icon" class="project-corner-image">
-            <div class="project-image-wrapper">
-              <img src="ProCap_WakeAnalysis.jpeg" alt="Wake analysis" class="project-image">
-            </div>
-            <div>
-              <h3>30% Scale F1 Model (2026 Regulations)</h3>
-              <p class="card-meta">Head of CAD</p>
-              <p>Summary of scope (CAD, CFD, wind tunnel, ProCap etc.).</p>
-            </div>
-          </article>
+        <!-- Current Projects -->
+        <div class="projects-year">
+          <h3 class="projects-year-title">Current Projects</h3>
+          <div class="project-list">
 
-          <!-- Stator project -->
-          <article class="card project-card">
-            <img src="images/electric-icon.png" alt="Electric propulsion icon" class="project-corner-image">
-            <div class="project-image-wrapper">
-              <img src="images/superconducting-stator.jpg" alt="Stator" class="project-image">
-            </div>
-            <div>
-              <h3>Superconducting Stator</h3>
-              <p class="card-meta">Individual Project</p>
-              <p>Summary (COMSOL, Python, optimisation etc.).</p>
-            </div>
-          </article>
+            <article class="card project-card">
+              <img src="images/motorsport-icon.png" alt="Motorsport icon" class="project-corner-image">
+              <div class="project-image-wrapper">
+                <img src="ProCap_WakeAnalysis.jpeg" alt="Wake analysis" class="project-image">
+              </div>
+              <div>
+                <h3>30% Scale F1 Model (2026 Regulations)</h3>
+                <p class="card-meta">Oct 2024 – Present</p>
+                <p class="project-type">Curricular</p>
+                <p>Notes about updating the model to 2026 regs, aero work, wind tunnel/CFD, etc.</p>
+              </div>
+            </article>
 
-          <!-- FS / robotics -->
-          <article class="card project-card">
-            <img src="images/fs-icon.png" alt="Formula Student icon" class="project-corner-image">
-            <div class="project-image-wrapper">
-              <img src="images/formula-student.jpg" alt="Formula Student" class="project-image">
-            </div>
-            <div>
-              <h3>Formula Student & Robotics</h3>
-              <p class="card-meta">FS · Eurobot · Greenpower</p>
-              <p>Summary (cooling loop, electronics, competitions etc.).</p>
-            </div>
-          </article>
+            <article class="card project-card">
+              <img src="images/airbus-logo.png" alt="Airbus icon" class="project-corner-image">
+              <div class="project-image-wrapper">
+                <img src="images/airbus-vr.jpg" alt="Airbus VR/AR tools" class="project-image">
+              </div>
+              <div>
+                <h3>Airbus AR Model Viewer & VR Tooling</h3>
+                <p class="card-meta">Sep 2024 – Present</p>
+                <p class="project-type">Professional experience</p>
+                <p>Notes about QR-based AR model viewer, VR visualisation tools in Unity/WPF, etc.</p>
+              </div>
+            </article>
+
+            <article class="card project-card">
+              <img src="images/airbus-logo.png" alt="Airbus icon" class="project-corner-image">
+              <div class="project-image-wrapper">
+                <img src="images/airbus-site-digital-twin.jpg" alt="Airbus site model" class="project-image">
+              </div>
+              <div>
+                <h3>Airbus CAD & Site Digital Twin Models</h3>
+                <p class="card-meta">Jul 2024 – Present</p>
+                <p class="project-type">Professional experience</p>
+                <p>Notes about 1:1 CAD models, site layouts for VR, integration with internal tools, etc.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- 2024 Projects -->
+        <div class="projects-year">
+          <h3 class="projects-year-title">2024</h3>
+          <div class="project-list">
+
+            <article class="card project-card">
+              <img src="images/electric-icon.png" alt="Electric propulsion icon" class="project-corner-image">
+              <div class="project-image-wrapper">
+                <img src="images/superconducting-stator.jpg" alt="Superconducting stator" class="project-image">
+              </div>
+              <div>
+                <h3>Superconducting Slotless Stator for Electric Aircraft</h3>
+                <p class="card-meta">Oct 2023 – Jun 2024</p>
+                <p class="project-type">Curricular</p>
+                <p>Notes about COMSOL modelling, optimisation, and performance trade-offs, etc.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- 2023 Projects -->
+        <div class="projects-year">
+          <h3 class="projects-year-title">2023</h3>
+          <div class="project-list">
+
+            <article class="card project-card">
+              <img src="images/subsea7-logo.png" alt="Subsea7 icon" class="project-corner-image">
+              <div class="project-image-wrapper">
+                <img src="images/subsea-fea.jpg" alt="Subsea FEA" class="project-image">
+              </div>
+              <div>
+                <h3>Subsea Pipeline FEA & Buckling Studies</h3>
+                <p class="card-meta">Jun 2023 – Sep 2023</p>
+                <p class="project-type">Professional experience</p>
+                <p>Notes about ANSYS-based route analysis, buckling mitigation, real project constraints, etc.</p>
+              </div>
+            </article>
+
+            <article class="card project-card">
+              <img src="images/subsea7-logo.png" alt="Subsea7 icon" class="project-corner-image">
+              <div class="project-image-wrapper">
+                <img src="images/subsea-python-tool.jpg" alt="Subsea7 Python tool" class="project-image">
+              </div>
+              <div>
+                <h3>Automated Report Appendix Tool (Subsea7)</h3>
+                <p class="card-meta">Jun 2023 – Sep 2023</p>
+                <p class="project-type">Professional experience</p>
+                <p>Notes about Python tool, GUI, pulling data from ANSYS and generating report appendices, etc.</p>
+              </div>
+            </article>
+
+            <article class="card project-card">
+              <img src="images/fs-icon.png" alt="Formula Student icon" class="project-corner-image">
+              <div class="project-image-wrapper">
+                <img src="images/formula-student.jpg" alt="Formula Student car" class="project-image">
+              </div>
+              <div>
+                <h3>Formula Student Cooling & Tractive Systems</h3>
+                <p class="card-meta">Jan 2023 – Jul 2023</p>
+                <p class="project-type">Extra-curricular</p>
+                <p>Notes about cooling loop design, tractive system work, simulations and component selection, etc.</p>
+              </div>
+            </article>
+
+            <article class="card project-card">
+              <img src="images/robotics-icon.png" alt="Robotics icon" class="project-corner-image">
+              <div class="project-image-wrapper">
+                <img src="images/eurobot.jpg" alt="Eurobot robot" class="project-image">
+              </div>
+              <div>
+                <h3>Eurobot Robotics Competition</h3>
+                <p class="card-meta">Oct 2022 – Jun 2023</p>
+                <p class="project-type">Extra-curricular</p>
+                <p>Notes about robot design, control, competition tasks and testing, etc.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Earlier Projects -->
+        <div class="projects-year">
+          <h3 class="projects-year-title">Earlier Projects</h3>
+          <div class="project-list">
+
+            <article class="card project-card">
+              <img src="images/greenpower-icon.png" alt="Greenpower icon" class="project-corner-image">
+              <div class="project-image-wrapper">
+                <img src="images/greenpower.jpg" alt="Greenpower EV" class="project-image">
+              </div>
+              <div>
+                <h3>Greenpower Electric Race Car</h3>
+                <p class="card-meta">2018 – 2020</p>
+                <p class="project-type">Extra-curricular</p>
+                <p>Notes about school-level EV race car work, roles taken, competitions entered, etc.</p>
+              </div>
+            </article>
+
+          </div>
         </div>
       </section>
 
@@ -526,7 +658,6 @@
         <div class="card contact-list">
           <p>Email: <a href="mailto:williamjtemple@outlook.com">williamjtemple@outlook.com</a></p>
           <p>LinkedIn: <a href="https://linkedin.com/in/williamtemple" target="_blank">linkedin.com/in/williamtemple</a></p>
-          <p>GitHub: <a href="https://github.com/williamtemple" target="_blank">github.com/williamtemple</a></p>
         </div>
       </section>
     </main>

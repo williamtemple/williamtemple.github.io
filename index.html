@@ -263,11 +263,35 @@
     }
 
     .project-image-wrapper {
+      position: relative;
       border-radius: 0.85rem;
       overflow: hidden;
       background: rgba(255, 255, 255, 0.04);
       min-height: 190px;
       cursor: zoom-in;
+      isolation: isolate;
+    }
+
+    /* "Stack of photos" effect */
+    .project-image-wrapper::before,
+    .project-image-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 0.85rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.95);
+      z-index: -1;
+    }
+
+    .project-image-wrapper::before {
+      transform: translate(8px, -6px) rotate(-1.5deg);
+      opacity: 0.5;
+    }
+
+    .project-image-wrapper::after {
+      transform: translate(-6px, 6px) rotate(1.2deg);
+      opacity: 0.35;
     }
 
     .project-image {
@@ -332,6 +356,7 @@
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
       border: 1px solid rgba(148, 163, 184, 0.6);
       background: #020617;
+      position: relative;
     }
 
     .lightbox img {
@@ -348,6 +373,37 @@
       text-align: center;
       width: 100%;
       pointer-events: none;
+    }
+
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.4rem;
+      line-height: 1;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox-arrow:hover {
+      filter: brightness(1.15);
+    }
+
+    .lightbox-prev {
+      left: 0.75rem;
+    }
+
+    .lightbox-next {
+      right: 0.75rem;
     }
 
     @media (max-width: 800px) {
@@ -476,8 +532,11 @@
           <div class="project-list">
 
             <article class="card project-card">
-              <img src="motorsport-icon.png" alt="Motorsport icon" class="project-corner-image">
-              <div class="project-image-wrapper">
+              <img src="images/motorsport-icon.png" alt="Motorsport icon" class="project-corner-image">
+              <!-- multiple images defined via data-images -->
+              <div
+                class="project-image-wrapper"
+                data-images="ProCap_WakeAnalysis.jpeg,WindTunnelModel_2022spec.jpg,ProCap_WakeAnalysis.jpeg,CADsuspension.jpg">
                 <img src="ProCap_WakeAnalysis.jpeg" alt="Wake analysis" class="project-image">
               </div>
               <div>
@@ -498,8 +557,10 @@
 
             <article class="card project-card">
               <img src="airbusLogo.png" alt="Airbus icon" class="project-corner-image">
-              <div class="project-image-wrapper">
-                <img src="airbus-ar-viewer.jpg" alt="Airbus AR model viewer" class="project-image">
+              <div
+                class="project-image-wrapper"
+                data-images="images/airbus-ar-viewer.jpg,images/airbus-ar-viewer-2.jpg">
+                <img src="images/airbus-ar-viewer.jpg" alt="Airbus AR model viewer" class="project-image">
               </div>
               <div>
                 <h3>AR Model Viewer</h3>
@@ -511,8 +572,10 @@
 
             <article class="card project-card">
               <img src="airbusLogo.png" alt="Airbus icon" class="project-corner-image">
-              <div class="project-image-wrapper">
-                <img src="airbus-vr-launcher.jpg" alt="Airbus VR launcher" class="project-image">
+              <div
+                class="project-image-wrapper"
+                data-images="images/airbus-vr-launcher.jpg,images/airbus-vr-launcher-2.jpg">
+                <img src="images/airbus-vr-launcher.jpg" alt="Airbus VR launcher" class="project-image">
               </div>
               <div>
                 <h3>VR Launcher</h3>
@@ -524,8 +587,10 @@
 
             <article class="card project-card">
               <img src="airbusLogo.png" alt="Airbus icon" class="project-corner-image">
-              <div class="project-image-wrapper">
-                <img src="airbus-cad-site.jpg" alt="Airbus CAD modelling" class="project-image">
+              <div
+                class="project-image-wrapper"
+                data-images="images/airbus-cad-site.jpg,images/airbus-spacelab.jpg,images/airbus-simplified-models.jpg">
+                <img src="images/airbus-cad-site.jpg" alt="Airbus CAD modelling" class="project-image">
               </div>
               <div>
                 <h3>CAD Modelling (Site Model, Spacelab Exhibit, Simplified Models)</h3>
@@ -544,9 +609,11 @@
           <div class="project-list">
 
             <article class="card project-card">
-              <img src="electric-icon.png" alt="Electric propulsion icon" class="project-corner-image">
-              <div class="project-image-wrapper">
-                <img src="superconducting-stator.jpg" alt="Superconducting stator" class="project-image">
+              <img src="images/electric-icon.png" alt="Electric propulsion icon" class="project-corner-image">
+              <div
+                class="project-image-wrapper"
+                data-images="images/superconducting-stator.jpg,images/superconducting-stator-2.jpg">
+                <img src="images/superconducting-stator.jpg" alt="Superconducting stator" class="project-image">
               </div>
               <div>
                 <h3>Superconducting Slotless Stator for Electric Aircraft</h3>
@@ -566,8 +633,10 @@
 
             <article class="card project-card">
               <img src="ss7logo.jpg" alt="Subsea7 icon" class="project-corner-image">
-              <div class="project-image-wrapper">
-                <img src="subsea-fea.jpg" alt="Subsea FEA" class="project-image">
+              <div
+                class="project-image-wrapper"
+                data-images="images/subsea-fea.jpg,images/subsea-fea-2.jpg">
+                <img src="images/subsea-fea.jpg" alt="Subsea FEA" class="project-image">
               </div>
               <div>
                 <h3>Subsea Pipeline FEA & Buckling Studies</h3>
@@ -579,8 +648,10 @@
 
             <article class="card project-card">
               <img src="ss7logo.jpg" alt="Subsea7 icon" class="project-corner-image">
-              <div class="project-image-wrapper">
-                <img src="subsea-python-tool.jpg" alt="Subsea7 Python tool" class="project-image">
+              <div
+                class="project-image-wrapper"
+                data-images="images/subsea-python-tool.jpg,images/subsea-python-tool-2.jpg">
+                <img src="images/subsea-python-tool.jpg" alt="Subsea7 Python tool" class="project-image">
               </div>
               <div>
                 <h3>Automated Report Appendix Tool (Subsea7)</h3>
@@ -591,9 +662,11 @@
             </article>
 
             <article class="card project-card">
-              <img src="fs-icon.png" alt="Formula Student icon" class="project-corner-image">
-              <div class="project-image-wrapper">
-                <img src="formula-student.jpg" alt="Formula Student car" class="project-image">
+              <img src="images/fs-icon.png" alt="Formula Student icon" class="project-corner-image">
+              <div
+                class="project-image-wrapper"
+                data-images="images/formula-student.jpg,images/formula-student-2.jpg">
+                <img src="images/formula-student.jpg" alt="Formula Student car" class="project-image">
               </div>
               <div>
                 <h3>Formula Student Cooling & Tractive Systems</h3>
@@ -604,9 +677,11 @@
             </article>
 
             <article class="card project-card">
-              <img src="robotics-icon.png" alt="Robotics icon" class="project-corner-image">
-              <div class="project-image-wrapper">
-                <img src="eurobot.jpg" alt="Eurobot robot" class="project-image">
+              <img src="images/robotics-icon.png" alt="Robotics icon" class="project-corner-image">
+              <div
+                class="project-image-wrapper"
+                data-images="images/eurobot.jpg,images/eurobot-2.jpg">
+                <img src="images/eurobot.jpg" alt="Eurobot robot" class="project-image">
               </div>
               <div>
                 <h3>Eurobot Robotics Competition</h3>
@@ -625,9 +700,11 @@
           <div class="project-list">
 
             <article class="card project-card">
-              <img src="greenpower-icon.png" alt="Greenpower icon" class="project-corner-image">
-              <div class="project-image-wrapper">
-                <img src="greenpower.jpg" alt="Greenpower EV" class="project-image">
+              <img src="images/greenpower-icon.png" alt="Greenpower icon" class="project-corner-image">
+              <div
+                class="project-image-wrapper"
+                data-images="images/greenpower.jpg,images/greenpower-2.jpg">
+                <img src="images/greenpower.jpg" alt="Greenpower EV" class="project-image">
               </div>
               <div>
                 <h3>Greenpower Electric Race Car</h3>
@@ -688,9 +765,11 @@
   <!-- LIGHTBOX OVERLAY -->
   <div id="image-lightbox" class="lightbox">
     <div class="lightbox-inner">
+      <button type="button" class="lightbox-arrow lightbox-prev" id="lightbox-prev">‹</button>
       <img id="lightbox-img" src="" alt="">
+      <button type="button" class="lightbox-arrow lightbox-next" id="lightbox-next">›</button>
     </div>
-    <div class="lightbox-close-hint">Click anywhere or press Esc to close</div>
+    <div class="lightbox-close-hint">Click anywhere or press Esc to close · Use arrows to flip</div>
   </div>
 
   <script>
@@ -698,32 +777,75 @@
 
     const lightbox = document.getElementById('image-lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    const projectImages = document.querySelectorAll('.project-image');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    const projectStacks = document.querySelectorAll('.project-image-wrapper');
 
     // Only enable lightbox on desktop / pointer devices (not touch-only)
     const isDesktopPointer = window.matchMedia('(pointer: fine)').matches;
 
+    let currentGallery = [];
+    let currentIndex = 0;
+
+    function showImage(index) {
+      if (!currentGallery.length) return;
+      currentIndex = (index + currentGallery.length) % currentGallery.length;
+      lightboxImg.src = currentGallery[currentIndex];
+    }
+
+    function openLightbox(images) {
+      if (!images || !images.length) return;
+      currentGallery = images;
+      showImage(0);
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
     if (isDesktopPointer) {
-      projectImages.forEach(img => {
-        img.addEventListener('click', () => {
-          lightboxImg.src = img.src;
-          lightboxImg.alt = img.alt || '';
-          lightbox.classList.add('active');
-          document.body.style.overflow = 'hidden';
+      projectStacks.forEach(stack => {
+        const mainImg = stack.querySelector('img');
+        stack.addEventListener('click', () => {
+          let images = [];
+          const data = stack.getAttribute('data-images');
+          if (data) {
+            images = data.split(',').map(s => s.trim()).filter(Boolean);
+          }
+          if (!images.length && mainImg) {
+            images = [mainImg.src];
+          }
+          openLightbox(images);
         });
       });
 
-      lightbox.addEventListener('click', () => {
-        lightbox.classList.remove('active');
-        lightboxImg.src = '';
-        document.body.style.overflow = '';
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+      // Clicking on overlay closes it, unless click is on arrows or image
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
           lightbox.classList.remove('active');
           lightboxImg.src = '';
           document.body.style.overflow = '';
+        }
+      });
+
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showImage(currentIndex - 1);
+      });
+
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showImage(currentIndex + 1);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') {
+          lightbox.classList.remove('active');
+          lightboxImg.src = '';
+          document.body.style.overflow = '';
+        } else if (e.key === 'ArrowLeft') {
+          showImage(currentIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+          showImage(currentIndex + 1);
         }
       });
     }

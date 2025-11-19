@@ -171,6 +171,24 @@
       font-size: 1rem;
     }
 
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+     }
+
+    .tag {
+     font-size: 0.72rem;
+     padding: 0.22rem 0.55rem;
+     border-radius: 999px;
+     background: rgba(74, 222, 128, 0.18); /* subtle green tint */
+     border: 1px solid rgba(74, 222, 128, 0.35);
+     color: #a7f3d0; /* soft mint text */
+     letter-spacing: 0.02em;
+     text-transform: uppercase;
+    }
+
     /* SECTIONS */
     main {
       padding: 2.4rem 0 0;
@@ -513,7 +531,10 @@
           <h1>William Temple</h1>
           <p class="hero-role">MEng Mechanical/Aerospace Engineering @ University of Southampton</p>
           <p class="hero-summary">
-          Mechanical/Aerospace engineering student specialising in CAD, data analysis and code. Industry experience at Airbus and Subsea7. Now leading CAD on a 30% scale 2026-spec F1 model and aiming for a career in design/simulation engineering.
+          Final year Mechanical/Aerospace engineering student specialising in CAD, data analysis and code. Industry experience at Airbus DS and Subsea7. 
+          </p>
+          <p>
+          Now leading CAD on a 30% scale 2026-spec F1 model and aiming for a career in design/simulation engineering.
           </p>
 
           <div class="hero-actions">
@@ -539,18 +560,27 @@
           <!-- Airbus -->
           <article class="card">
             <img src="images/airbusLogo.png" alt="Airbus" class="card-corner-image">
-            <h3>CAD Process Engineering Intern</h3>
+            <h3>CAD Process Engineering Intern (13 Month Placement)</h3>
             <p class="card-meta">Jul 2024 – Aug 2025</p>
             <p>The team's role is to produce, develop and maintain engineering tools for the physical design of Airbus’ space products.</p>
             <p>My work focused on innovation: creating new CAD models in 3DX/CATIA v5/Blender/Unity and developing prototype applications in C#/WPF.
               I also built an AR viewer for 3DX models and presented AR/VR tools to senior Airbus leadership and other VIPs. 
               The main projects are listed below.</p>
+             <div class="project-tags">
+               <span class="tag">3DXperience</span>
+               <span class="tag">CATIA v5</span>
+               <span class="tag">C#/span>
+               <span class="tag">Unity</span>
+               <span class="tag">Blender</span>
+               <span class="tag">AR/VR</span>
+             </div>
+            
           </article>
 
           <!-- Subsea7 -->
           <article class="card">
             <img src="images/ss7logo.jpg" alt="Subsea7" class="card-corner-image">
-            <h3>Engineering Intern · Rigid Pipelines</h3>
+            <h3>Engineering Intern - Rigid Pipelines Department (Summer Internship)</h3>
             <p class="card-meta">Jun 2023 – Sep 2023</p>
             <p>Summary of analysis work, automation tool in Python etc.</p>
           </article>
@@ -560,7 +590,7 @@
       <!-- PROJECTS -->
       <section id="projects">
         <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">Current and past work, separated by year, matching the projects listed on my CV.</p>
+        <p class="section-subtitle">Summary of some of the larger projects I've been a part of.</p>
 
         <!-- Current Projects -->
         <div class="projects-year">
@@ -577,7 +607,7 @@
               </div>
               <div>
                 <h3>30% Scale F1 Model (2026 Regulations)</h3>
-                <p class="card-meta">Oct 2024 – Present</p>
+                <p class="card-meta">Sep 2024 – Present</p>
                 <p class="project-type">Curricular</p>
                 <p>Notes about updating the model to 2026 regs, aero work, wind tunnel/CFD, etc.</p>
               </div>

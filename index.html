@@ -284,6 +284,10 @@
       align-items: start;
     }
 
+    .project-card.no-image {
+      grid-template-columns: 1fr;   /* single full-width column */
+    }
+
     .project-image-wrapper {
       position: relative;
       border-radius: 0.85rem;
@@ -753,8 +757,8 @@
           <h3 class="projects-year-title">2023</h3>
           <div class="project-list">
 
-            <!-- Subsea projects: text only, no thumbnails -->
-            <article class="card project-card">
+            <!-- Subsea7 projects-->
+            <article class="card project-card no-image">
               <img src="images/ss7logo.jpg" alt="Subsea7 icon" class="project-corner-image">
               <div class="project-content">
                 <h3>Subsea Pipeline FEA & Buckling Studies</h3>
@@ -764,7 +768,7 @@
               </div>
             </article>
 
-            <article class="card project-card">
+            <article class="card project-card no-image">
               <img src="images/ss7logo.jpg" alt="Subsea7 icon" class="project-corner-image">
               <div class="project-content">
                 <h3>Automated Report Appendix Tool (Subsea7)</h3>

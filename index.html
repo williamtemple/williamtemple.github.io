@@ -5,7 +5,6 @@
   <title>William Temple - Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    
     :root {
       color-scheme: dark;
     }
@@ -360,6 +359,38 @@
       pointer-events: none;
     }
 
+    /* -------- READ-MORE CLAMP -------- */
+    .project-content {
+      position: relative;
+    }
+
+    .project-body.clamped {
+      max-height: 14rem;   /* tweak to match bottom of the image */
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-body.clamped::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3rem;
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0),
+        rgba(15, 23, 42, 0.98)
+      );
+    }
+
+    .read-more-btn {
+      margin-top: 0.5rem;
+      padding-inline: 0.9rem;
+      font-size: 0.8rem;
+    }
+    /* -------- END READ-MORE CLAMP -------- */
+
     /* SKILLS */
     .skills-grid {
       display: grid;
@@ -571,15 +602,14 @@
             <p>My work focused on innovation: creating new CAD models in 3DX/CATIA v5/Blender/Unity and developing prototype applications in C#/WPF.
               I also built an AR viewer for 3DX models and presented AR/VR tools to senior Airbus leadership and other VIPs.</p>
             <p>The main projects are listed below.</p>
-             <div class="project-tags">
-               <span class="tag">3DXperience</span>
-               <span class="tag">CATIA v5</span>
-               <span class="tag">C#</span>
-               <span class="tag">Unity</span>
-               <span class="tag">Blender</span>
-               <span class="tag">AR/VR</span>
-             </div>
-            
+            <div class="project-tags">
+              <span class="tag">3DXperience</span>
+              <span class="tag">CATIA v5</span>
+              <span class="tag">C#</span>
+              <span class="tag">Unity</span>
+              <span class="tag">Blender</span>
+              <span class="tag">AR/VR</span>
+            </div>
           </article>
 
           <!-- Subsea7 -->
@@ -590,12 +620,12 @@
             <p>Part of the Rigid Pipelines team, working on the design and assessment of non-flexible subsea pipelines.</p>
             <p>I received training in buckling, fatigue mitigation and industry standards, and performed FEA of complex pipe routes using ANSYS-based tools. 
                I also developed a Python application that automatically generated report appendices and graphs from ANSYS output, complete with a user-friendly GUI.</p>
-             <p>The main projects are listed below.</p>   
-             <div class="project-tags">
-               <span class="tag">ANSYS FEA</span>
-               <span class="tag">Python (Plotly/Pandas)</span>
-               <span class="tag">Data Analysis</span>
-             </div>
+            <p>The main projects are listed below.</p>   
+            <div class="project-tags">
+              <span class="tag">ANSYS FEA</span>
+              <span class="tag">Python (Plotly/Pandas)</span>
+              <span class="tag">Data Analysis</span>
+            </div>
           </article>
         </div>
       </section>
@@ -610,6 +640,7 @@
           <h3 class="projects-year-title">Current Projects</h3>
           <div class="project-list">
 
+            <!-- F1 PROJECT WITH CLAMPED TEXT -->
             <article class="card project-card">
               <img src="images/UoSLogo.png" alt="University of Southampton Logo" class="project-corner-image">
               <div
@@ -618,14 +649,19 @@
                 <div class="photo-count-badge">📷 3</div>
                 <img src="images/ProCap_WakeAnalysis.jpeg" alt="Wake analysis" class="project-image">
               </div>
-              <div>
+              <div class="project-content">
                 <h3>30% Scale F1 Model (2026 Regulations)</h3>
                 <p class="card-meta">Sep 2025 – Present</p>
                 <p class="project-type">Curricular</p>
-                <p>Technical Role: Head of CAD Design</p>
-                <p>For my final year project, I am working on adapting a 30%-scale Formula 1 car model to meet the new 2026 regulations. This involves CAD in SOLIDWORKS, CFD in STAR-CCM+, and wind tunnel testing to iteratively design and refine the car’s aerodynamic package. I am the CAD design lead for this project and also have a focus on data gathering and analysis using Python and Excel.</p>
-                <p>We began by studying the previous year’s 2022-spec physical and CAD model to determine which components could be reused or updated. We also analysed the 2026 regulation set to plan our development approach. Our team has carried out two days of wind tunnel testing on the 2022 model, performing ride-height sweeps at multiple wind speeds and collecting ProCap wake data. This allowed us to familiarise ourselves with the wind tunnel process and establish measurable targets for our own design. I processed the test data into key performance metrics such as lift, drag, balance and yaw behaviour, producing Python plots to help visualise trends.</p
-                <p>Currently, I am working on a baseline SOLIDWORKS model for the front wing that conforms to the 2026 regulation set. We produced a set of regulation boxes from the rules to aid us in the design, via online tutorials. Once the baseline model is complete, we will move on to CFD testing in STAR-CCM+, for which we have been preparing and training as a team. We will iteratively improve sections of the car based on our findings, before 3D printing a final model for a wind tunnel test. We aim to perform the same ride-height sweeps, wake analysis, as well as yaw testing and the use of flow-vis.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+                <div class="project-body clamped">
+                  <p><strong>Technical Role:</strong> Head of CAD Design</p>
+                  <p>For my final year project, I am working on adapting a 30%-scale Formula 1 car model to meet the new 2026 regulations. This involves CAD in SOLIDWORKS, CFD in STAR-CCM+, and wind tunnel testing to iteratively design and refine the car’s aerodynamic package. I am the CAD design lead for this project and also have a focus on data gathering and analysis using Python and Excel.</p>
+                  <p>We began by studying the previous year’s 2022-spec physical and CAD model to determine which components could be reused or updated. We also analysed the 2026 regulation set to plan our development approach. Our team has carried out two days of wind tunnel testing on the 2022 model, performing ride-height sweeps at multiple wind speeds and collecting ProCap wake data. This allowed us to familiarise ourselves with the wind tunnel process and establish measurable targets for our own design. I processed the test data into key performance metrics such as lift, drag, balance and yaw behaviour, producing Python plots to help visualise trends.</p>
+                  <p>Currently, I am working on a baseline SOLIDWORKS model for the front wing that conforms to the 2026 regulation set. We produced a set of regulation boxes from the rules to aid us in the design, via online tutorials. Once the baseline model is complete, we will move on to CFD testing in STAR-CCM+, for which we have been preparing and training as a team. We will iteratively improve sections of the car based on our findings, before 3D printing a final model for a wind tunnel test. We aim to perform the same ride-height sweeps, wake analysis, as well as yaw testing and the use of flow-vis.</p>
+                </div>
+
+                <button type="button" class="btn read-more-btn">Read more</button>
               </div>
             </article>
 
@@ -753,9 +789,9 @@
               <img src="images/sufstLogo.jpg" alt="Formula Student icon" class="project-corner-image">
               <div
                 class="project-image-wrapper"
-                data-images="images/formula-student.jpg,images/formula-student-2.jpg">
+                data-images="images/fs1.jpg,images/fs2.jpg">
                 <div class="photo-count-badge">📷 2</div>
-                <img src="images/formula-student.jpg" alt="Formula Student car" class="project-image">
+                <img src="images/fs1.jpg" alt="Formula Student car" class="project-image">
               </div>
               <div>
                 <h3>Formula Student Cooling & Tractive Systems</h3>
@@ -970,6 +1006,36 @@
 
       const count = data.split(',').map(x => x.trim()).filter(Boolean).length;
       badge.textContent = `📷 ${count}`;
+    });
+
+    // READ MORE / READ LESS FOR PROJECT TEXT
+    document.querySelectorAll('.project-card').forEach(card => {
+      const body = card.querySelector('.project-body');
+      const btn  = card.querySelector('.read-more-btn');
+      if (!body || !btn) return;
+
+      // If there is no overflow, hide the button and remove the clamp
+      if (body.scrollHeight <= body.clientHeight + 1) {
+        body.classList.remove('clamped');
+        btn.style.display = 'none';
+        return;
+      }
+
+      btn.addEventListener('click', () => {
+        const isClamped = body.classList.contains('clamped');
+
+        if (isClamped) {
+          // expand
+          body.classList.remove('clamped');
+          btn.textContent = 'Read less';
+        } else {
+          // collapse
+          body.classList.add('clamped');
+          btn.textContent = 'Read more';
+          // keep the top of the card in view when re-collapsing
+          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
     });
   </script>
 </body>

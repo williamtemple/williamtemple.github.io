@@ -25,16 +25,26 @@
       color: #e5e7eb;
     }
 
-    .profile-photo {
-      width: 110px;
-      height: 110px;
-      object-fit: cover;
-      border-radius: 999px;         /* perfect circle */
-      display: block;
-      margin: 0 auto 1rem;          /* centre it */
-      border: 2px solid rgba(255,255,255,0.25); /* subtle border */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    .hero-side-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
     }
+
+    .hero-side-text {
+      flex: 1;
+    }
+
+    .profile-photo {
+      width: 90px;              
+      height: 90px;
+      border-radius: 999px;      /* circle */
+      object-fit: cover;
+      border: 2px solid rgba(255,255,255,0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    }
+
 
 
     a {
@@ -619,12 +629,16 @@
           </div>
         </div>
 
-       <aside class="hero-side">
-          <img src="images/me.png" alt="Portrait of William Temple" class="profile-photo">
+        <aside class="hero-side">
+          <div class="hero-side-inner">
+            <div class="hero-side-text">
+              <h2>At a glance</h2>
+              <p><strong>Location:</strong> London, UK</p>
+              <p><strong>Graduation:</strong> 2026</p>
+            </div>
 
-          <h2>At a glance</h2>
-          <p><strong>Location:</strong> London, UK</p>
-          <p><strong>Graduation:</strong> 2026</p>
+          <img src="images/me.png" alt="me" class="profile-photo">
+        </div>
       </aside>
 
       </div>

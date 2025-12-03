@@ -213,6 +213,29 @@
       font-size: 0.9rem;
       color: #9ca3af;
     }
+    .projects-notice {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.1rem;
+      margin: 0 0 1.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(250, 204, 21, 0.5); /* yellow border */
+      background: radial-gradient(circle at top left,
+                  rgba(250, 204, 21, 0.16),
+                  rgba(15, 23, 42, 0.98));
+      font-size: 0.9rem;
+      text-align: center;
+
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+}
+
+.projects-notice-icon {
+  font-size: 1rem;
+}
+
 
     .grid {
       display: grid;
@@ -638,7 +661,10 @@
       <section id="projects">
         <h2 class="section-title">Projects</h2>
         <p class="section-subtitle">Summary of some of the larger projects I've worked on.</p>
-        <p>⭐ Please CLICK on the thumbnail image to see all images. ⭐</p>
+        <div class="projects-notice">
+          <span class="projects-notice-icon">⭐</span>
+          <span>Please CLICK on the thumbnail image to see all images.</span>
+        </div>
 
         <!-- Current Projects -->
         <div class="projects-year">
